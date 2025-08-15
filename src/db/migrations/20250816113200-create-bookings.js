@@ -21,7 +21,7 @@ module.exports = {
             availability_id: {
                 type: Sequelize.INTEGER,
                 references: {
-                    model: 'activity_availability',
+                    model: 'activity_availabilities',
                     key: 'id',
                 },
                 onUpdate: 'CASCADE',
