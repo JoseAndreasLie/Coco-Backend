@@ -19,9 +19,15 @@ module.exports = (sequelize, DataTypes) => {
                 autoIncrement: true,
                 allowNull: false,
             },
-            name: DataTypes.STRING,
-            description: DataTypes.STRING,
-            image_url: DataTypes.STRING,
+            name: {
+                type: DataTypes.STRING,
+            },
+            description: {
+                type: DataTypes.STRING,
+            },
+            image_url: {
+                type: DataTypes.STRING,
+            },
             created_at: {
                 type: DataTypes.DATE,
                 defaultValue: DataTypes.NOW,

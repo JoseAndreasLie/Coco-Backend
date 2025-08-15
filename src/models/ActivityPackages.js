@@ -19,17 +19,40 @@ module.exports = (sequelize, DataTypes) => {
                 autoIncrement: true,
                 allowNull: false,
             },
-            activity_id: DataTypes.INTEGER,
-            name: DataTypes.STRING,
-            description: DataTypes.STRING,
-            price_per_person: DataTypes.DECIMAL,
-            min_participants: DataTypes.INTEGER,
-            max_participant: DataTypes.INTEGER,
-            start_time: DataTypes.TIME,
-            end_time: DataTypes.TIME,
-            host_id: DataTypes.INTEGER,
-            address: DataTypes.STRING,
-            image_url: DataTypes.STRING,
+            activity_id: {
+                type: DataTypes.INTEGER,
+                references: { model: 'activities', key: 'id' },
+            },
+            name: {
+                type: DataTypes.STRING,
+            },
+            description: {
+                type: DataTypes.STRING,
+            },
+            price_per_person: {
+                type: DataTypes.DECIMAL,
+            },
+            min_participants: {
+                type: DataTypes.INTEGER,
+            },
+            max_participant: {
+                type: DataTypes.INTEGER,
+            },
+            start_time: {
+                type: DataTypes.TIME,
+            },
+            end_time: {
+                type: DataTypes.TIME,
+            },
+            host_id: {
+                type: DataTypes.INTEGER,
+            },
+            address: {
+                type: DataTypes.STRING,
+            },
+            image_url: {
+                type: DataTypes.STRING,
+            },
             created_at: {
                 type: DataTypes.DATE,
                 defaultValue: DataTypes.NOW,

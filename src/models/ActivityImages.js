@@ -19,9 +19,21 @@ module.exports = (sequelize, DataTypes) => {
                 autoIncrement: true,
                 allowNull: false,
             },
-            activity_id: DataTypes.INTEGER,
-            image_url: DataTypes.STRING,
-            image_type: DataTypes.STRING,
+            activity_id: {
+                type: DataTypes.INTEGER,
+                references: {
+                    model: 'activities',
+                    key: 'id',
+                },
+                onUpdate: 'CASCADE',
+                onDelete: 'CASCADE',
+            },
+            image_url: {
+                type: DataTypes.STRING
+            },
+            image_type: {
+                type: DataTypes.STRING
+            },
             created_at: {
                 type: DataTypes.DATE,
                 defaultValue: DataTypes.NOW,

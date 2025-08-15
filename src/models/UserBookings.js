@@ -19,8 +19,24 @@ module.exports = (sequelize, DataTypes) => {
                 autoIncrement: true,
                 allowNull: false,
             },
-            user_id: DataTypes.UUID,
-            booking_id: DataTypes.INTEGER,
+            user_id: {
+                type: DataTypes.UUID,
+                references: {
+                    model: 'users',
+                    key: 'id',
+                },
+                onUpdate: 'CASCADE',
+                onDelete: 'CASCADE',
+            },
+            booking_id: {
+                type: DataTypes.INTEGER,
+                references: {
+                    model: 'bookings',
+                    key: 'id',
+                },
+                onUpdate: 'CASCADE',
+                onDelete: 'CASCADE',
+            },
             created_at: {
                 type: DataTypes.DATE,
                 defaultValue: DataTypes.NOW,

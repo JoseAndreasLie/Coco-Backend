@@ -21,11 +21,33 @@ module.exports = (sequelize, DataTypes) => {
 			},
             title: DataTypes.STRING,
             description: DataTypes.STRING,
-            category_id: DataTypes.INTEGER,
-            destination_id: DataTypes.INTEGER,
-            duration_minutes: DataTypes.INTEGER,
-            pricing: DataTypes.DECIMAL,
-            cancelable: DataTypes.STRING,
+            category_id: { 
+                type: DataTypes.INTEGER,
+                references: {
+                    model: 'categories',
+                    key: 'id',
+                },
+                onUpdate: 'CASCADE',
+                onDelete: 'CASCADE',
+            },
+            destination_id: {
+                type: DataTypes.INTEGER,
+                references: {
+                    model: 'destinations',
+                    key: 'id',
+                },
+                onUpdate: 'CASCADE',
+                onDelete: 'CASCADE',
+            },
+            duration_minutes: {
+                type: DataTypes.INTEGER,
+            },
+            pricing: {
+                type: DataTypes.DECIMAL,
+            },
+            cancelable: {
+                type: DataTypes.STRING,
+            },
             created_at: {
                 type: DataTypes.DATE,
                 defaultValue: DataTypes.NOW,

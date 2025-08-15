@@ -19,11 +19,27 @@ module.exports = (sequelize, DataTypes) => {
                 autoIncrement: true,
                 allowNull: false,
             },
-            activity_package_id: DataTypes.INTEGER,
-            date: DataTypes.DATE,
-            start_time: DataTypes.TIME,
-            end_time: DataTypes.TIME,
-            available_slots: DataTypes.INTEGER,
+            activity_package_id: {
+                type: DataTypes.INTEGER,
+                references: {
+                    model: 'activities',
+                    key: 'id',
+                },
+                onUpdate: 'CASCADE',
+                onDelete: 'CASCADE',
+            },
+            date: {
+                type: DataTypes.DATE,
+            },
+            start_time: {
+                type: DataTypes.TIME,
+            },
+            end_time: {
+                type: DataTypes.TIME,
+            },
+            available_slots: {
+                type: DataTypes.INTEGER,
+            },
             created_at: {
                 type: DataTypes.DATE,
                 defaultValue: DataTypes.NOW,
