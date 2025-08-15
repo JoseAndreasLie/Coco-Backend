@@ -29,7 +29,7 @@ module.exports = (sequelize, DataTypes) => {
             availability_id: {
                 type: DataTypes.UUID,
                 references: {
-                    model: 'activity_availability',
+                    model: 'activity_availabilities',
                     key: 'id',
                 },
             },
