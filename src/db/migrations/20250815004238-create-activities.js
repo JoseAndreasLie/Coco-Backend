@@ -4,7 +4,6 @@ module.exports = {
     async up(queryInterface, Sequelize) {
         await queryInterface.createTable('activities', {
             id: {
-                allowNull: false,
                 autoIncrement: true,
                 primaryKey: true,
                 type: Sequelize.INTEGER,
@@ -19,19 +18,19 @@ module.exports = {
                 type: Sequelize.INTEGER,
                 reference: {
                     model: 'categories',
-                    key: 'id'
+                    key: 'id',
                 },
                 onUpdate: 'CASCADE',
-                onDelete: 'CASCADE'
+                onDelete: 'CASCADE',
             },
             destination_id: {
                 type: Sequelize.INTEGER,
                 references: {
                     model: 'destinations',
-                    key: 'id'
+                    key: 'id',
                 },
                 onUpdate: 'CASCADE',
-                onDelete: 'CASCADE'
+                onDelete: 'CASCADE',
             },
             duration_minutes: {
                 type: Sequelize.INTEGER,
@@ -39,16 +38,19 @@ module.exports = {
             pricing: {
                 type: Sequelize.DECIMAL,
             },
+            accessory_ids: {
+                type: Sequelize.ARRAY(Sequelize.INTEGER),
+            },
             cancelable: {
                 type: Sequelize.TEXT,
             },
             created_at: {
-                allowNull: false,
                 type: Sequelize.DATE,
+                defaultValue: Sequelize.NOW,
             },
             updated_at: {
-                allowNull: false,
                 type: Sequelize.DATE,
+                defaultValue: Sequelize.NOW,
             },
             deleted_at: {
                 allowNull: true,

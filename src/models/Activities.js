@@ -45,6 +45,9 @@ module.exports = (sequelize, DataTypes) => {
             pricing: {
                 type: DataTypes.DECIMAL,
             },
+            accessory_ids: {
+                type: DataTypes.ARRAY(DataTypes.INTEGER),
+            },
             cancelable: {
                 type: DataTypes.STRING,
             },

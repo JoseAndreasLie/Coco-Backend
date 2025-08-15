@@ -4,7 +4,6 @@ module.exports = {
     async up(queryInterface, Sequelize) {
         await queryInterface.createTable('groups', {
             id: {
-                allowNull: false,
                 autoIncrement: true,
                 primaryKey: true,
                 type: Sequelize.INTEGER,
@@ -20,11 +19,13 @@ module.exports = {
             },
             created_at: {
                 type: Sequelize.DATE,
-                allowNull: false,
+
+                defaultValue: Sequelize.NOW,
             },
             updated_at: {
                 type: Sequelize.DATE,
-                allowNull: false,
+
+                defaultValue: Sequelize.NOW,
             },
             deleted_at: {
                 type: Sequelize.DATE,

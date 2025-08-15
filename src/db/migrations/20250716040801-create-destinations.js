@@ -4,30 +4,28 @@ module.exports = {
     async up(queryInterface, Sequelize) {
         await queryInterface.createTable('destinations', {
             id: {
-                allowNull: false,
                 primaryKey: true,
                 autoIncrement: true,
                 type: Sequelize.INTEGER,
             },
             name: {
-                allowNull: false,
                 type: Sequelize.STRING,
             },
             description: {
-                allowNull: false,
                 type: Sequelize.TEXT,
             },
-            image_url : {
-                allowNull: false,
+            image_url: {
                 type: Sequelize.STRING,
             },
             created_at: {
-                allowNull: false,
+                //
                 type: Sequelize.DATE,
+                defaultValue: Sequelize.NOW,
             },
             updated_at: {
-                allowNull: false,
+                //
                 type: Sequelize.DATE,
+                defaultValue: Sequelize.NOW,
             },
             deleted_at: {
                 allowNull: true,

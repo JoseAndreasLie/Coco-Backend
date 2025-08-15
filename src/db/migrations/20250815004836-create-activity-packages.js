@@ -4,7 +4,6 @@ module.exports = {
     async up(queryInterface, Sequelize) {
         await queryInterface.createTable('activity_packages', {
             id: {
-                allowNull: false,
                 autoIncrement: true,
                 primaryKey: true,
                 type: Sequelize.INTEGER,
@@ -13,10 +12,10 @@ module.exports = {
                 type: Sequelize.INTEGER,
                 references: {
                     model: 'activities',
-                    key: 'id'
+                    key: 'id',
                 },
                 onUpdate: 'CASCADE',
-                onDelete: 'CASCADE'
+                onDelete: 'CASCADE',
             },
             name: {
                 type: Sequelize.STRING,
@@ -43,10 +42,10 @@ module.exports = {
                 type: Sequelize.INTEGER,
                 references: {
                     model: 'hosts',
-                    key: 'id'
+                    key: 'id',
                 },
                 onUpdate: 'CASCADE',
-                onDelete: 'CASCADE'
+                onDelete: 'CASCADE',
             },
             address: {
                 type: Sequelize.STRING,
@@ -55,12 +54,12 @@ module.exports = {
                 type: Sequelize.STRING,
             },
             created_at: {
-                allowNull: false,
                 type: Sequelize.DATE,
+                defaultValue: Sequelize.NOW,
             },
             updated_at: {
-                allowNull: false,
                 type: Sequelize.DATE,
+                defaultValue: Sequelize.NOW,
             },
             deleted_at: {
                 allowNull: true,

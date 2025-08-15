@@ -4,13 +4,11 @@ module.exports = {
     async up(queryInterface, Sequelize) {
         await queryInterface.createTable('hosts', {
             id: {
-                allowNull: false,
                 primaryKey: true,
                 autoIncrement: true,
                 type: Sequelize.INTEGER,
             },
             name: {
-                allowNull: false,
                 type: Sequelize.STRING,
             },
             bio: {
@@ -20,12 +18,12 @@ module.exports = {
                 type: Sequelize.STRING,
             },
             created_at: {
-                allowNull: false,
                 type: Sequelize.DATE,
+                defaultValue: Sequelize.NOW,
             },
             updated_at: {
-                allowNull: false,
                 type: Sequelize.DATE,
+                defaultValue: Sequelize.NOW,
             },
             deleted_at: {
                 allowNull: true,
