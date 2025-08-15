@@ -24,12 +24,16 @@ module.exports = {
             available_slots: {
                 type: Sequelize.INTEGER,
             },
-            createdAt: {
+            created_at: {
                 allowNull: false,
                 type: Sequelize.DATE,
             },
-            updatedAt: {
+            updated_at: {
                 allowNull: false,
+                type: Sequelize.DATE,
+            },
+            deleted_at: {
+                allowNull: true,
                 type: Sequelize.DATE,
             },
         });
