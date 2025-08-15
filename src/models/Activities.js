@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
 				allowNull: false,
 			},
             title: DataTypes.STRING,
-            description: DataTypes.STRING,
+            description: DataTypes.TEXT,
             category_id: { 
                 type: DataTypes.INTEGER,
                 references: {

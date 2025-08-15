@@ -13,7 +13,7 @@ module.exports = {
                 type: Sequelize.STRING,
             },
             description: {
-                type: Sequelize.STRING,
+                type: Sequelize.TEXT,
             },
             category_id: {
                 type: Sequelize.INTEGER,
@@ -40,7 +40,7 @@ module.exports = {
                 type: Sequelize.DECIMAL,
             },
             cancelable: {
-                type: Sequelize.STRING,
+                type: Sequelize.TEXT,
             },
             created_at: {
                 allowNull: false,
