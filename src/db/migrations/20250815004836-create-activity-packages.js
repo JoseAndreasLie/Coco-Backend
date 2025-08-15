@@ -30,7 +30,7 @@ module.exports = {
             min_participants: {
                 type: Sequelize.INTEGER,
             },
-            max_participant: {
+            max_participants: {
                 type: Sequelize.INTEGER,
             },
             start_time: {
