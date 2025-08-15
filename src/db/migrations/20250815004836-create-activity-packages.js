@@ -11,6 +11,12 @@ module.exports = {
             },
             activity_id: {
                 type: Sequelize.INTEGER,
+                references: {
+                    model: 'activities',
+                    key: 'id'
+                },
+                onUpdate: 'CASCADE',
+                onDelete: 'CASCADE'
             },
             name: {
                 type: Sequelize.STRING,
@@ -35,6 +41,12 @@ module.exports = {
             },
             host_id: {
                 type: Sequelize.INTEGER,
+                references: {
+                    model: 'hosts',
+                    key: 'id'
+                },
+                onUpdate: 'CASCADE',
+                onDelete: 'CASCADE'
             },
             address: {
                 type: Sequelize.STRING,

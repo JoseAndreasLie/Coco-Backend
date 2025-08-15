@@ -11,6 +11,12 @@ module.exports = {
             },
             activity_package_id: {
                 type: Sequelize.INTEGER,
+                references: {
+                    model: 'activity_packages',
+                    key: 'id'
+                },
+                onUpdate: 'CASCADE',
+                onDelete: 'CASCADE'
             },
             date: {
                 type: Sequelize.DATE,

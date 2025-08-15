@@ -17,9 +17,21 @@ module.exports = {
             },
             category_id: {
                 type: Sequelize.INTEGER,
+                reference: {
+                    model: 'categories',
+                    key: 'id'
+                },
+                onUpdate: 'CASCADE',
+                onDelete: 'CASCADE'
             },
             destination_id: {
                 type: Sequelize.INTEGER,
+                references: {
+                    model: 'destinations',
+                    key: 'id'
+                },
+                onUpdate: 'CASCADE',
+                onDelete: 'CASCADE'
             },
             duration_minutes: {
                 type: Sequelize.INTEGER,

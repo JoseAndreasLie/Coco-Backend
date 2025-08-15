@@ -11,6 +11,12 @@ module.exports = {
             },
             activity_id: {
                 type: Sequelize.INTEGER,
+                references: {
+                    model: 'activities',
+                    key: 'id'
+                },
+                onUpdate: 'CASCADE',
+                onDelete: 'CASCADE'
             },
             image_url: {
                 type: Sequelize.STRING,

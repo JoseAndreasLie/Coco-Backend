@@ -11,9 +11,21 @@ module.exports = {
             },
             activity_id: {
                 type: Sequelize.INTEGER,
+                references: {
+                    model: 'activities',
+                    key: 'id'
+                },
+                onUpdate: 'CASCADE',
+                onDelete: 'CASCADE'
             },
             accessory_id: {
                 type: Sequelize.INTEGER,
+                references: {
+                    model: 'accessories',
+                    key: 'id'
+                },
+                onUpdate: 'CASCADE',
+                onDelete: 'CASCADE'
             },
             created_at: {
                 allowNull: false,
