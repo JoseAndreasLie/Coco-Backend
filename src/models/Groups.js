@@ -14,9 +14,27 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Groups.init({
+    id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true, 
+      primaryKey: true,
+      allowNull: false,
+    },
     name: DataTypes.STRING,
     description: DataTypes.TEXT,
-    session: DataTypes.STRING
+    session: DataTypes.STRING,
+    created_at: {
+        type: DataTypes.DATE,
+        defaultValue: DataTypes.NOW,
+    },
+    updated_at: {
+        type: DataTypes.DATE,
+        defaultValue: DataTypes.NOW,
+    },
+    deleted_at: {
+        type: DataTypes.DATE,
+        allowNull: true,
+    }
   }, {
     sequelize,
     modelName: 'groups',

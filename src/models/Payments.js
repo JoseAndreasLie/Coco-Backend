@@ -14,6 +14,12 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Payments.init({
+    id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true, 
+      primaryKey: true,
+      allowNull: false,
+    },
     booking_id: DataTypes.UUID,
     group_id: DataTypes.UUID,
     payment_method: DataTypes.STRING,
@@ -22,7 +28,18 @@ module.exports = (sequelize, DataTypes) => {
     tax: DataTypes.DECIMAL,
     total: DataTypes.DECIMAL,
     status: DataTypes.STRING,
-    created_at: DataTypes.DATE
+    created_at: {
+        type: DataTypes.DATE,
+        defaultValue: DataTypes.NOW,
+    },
+    updated_at: {
+        type: DataTypes.DATE,
+        defaultValue: DataTypes.NOW,
+    },
+    deleted_at: {
+        type: DataTypes.DATE,
+        allowNull: true,
+    }
   }, {
     sequelize,
     modelName: 'payments',

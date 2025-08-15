@@ -14,12 +14,29 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Reviews.init({
+    id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true, 
+      primaryKey: true,
+      allowNull: false,
+    },
     activity_id: DataTypes.UUID,
     user_id: DataTypes.UUID,
     group_id: DataTypes.UUID,
     rating: DataTypes.INTEGER,
     comment: DataTypes.TEXT,
-    created_at: DataTypes.DATE
+    created_at: {
+        type: DataTypes.DATE,
+        defaultValue: DataTypes.NOW,
+    },
+    updated_at: {
+        type: DataTypes.DATE,
+        defaultValue: DataTypes.NOW,
+    },
+    deleted_at: {
+        type: DataTypes.DATE,
+        allowNull: true,
+    }
   }, {
     sequelize,
     modelName: 'reviews',

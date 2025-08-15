@@ -14,9 +14,27 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   UserBookings.init({
+    id: {
+      type: DataTypes.INTEGER,
+      autoIncrement: true, 
+      primaryKey: true,
+      allowNull: false,
+    },
     user_id: DataTypes.UUID,
     booking_id: DataTypes.UUID,
-    role: DataTypes.STRING
+    role: DataTypes.STRING,
+    created_at: {
+        type: DataTypes.DATE,
+        defaultValue: DataTypes.NOW,
+    },
+    updated_at: {
+        type: DataTypes.DATE,
+        defaultValue: DataTypes.NOW,
+    },
+    deleted_at: {
+        type: DataTypes.DATE,
+        allowNull: true,
+    }
   }, {
     sequelize,
     modelName: 'user_bookings',

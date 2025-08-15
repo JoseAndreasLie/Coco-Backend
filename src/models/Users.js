@@ -14,11 +14,28 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
 Users.init({
+  id: {
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4, 
+      primaryKey: true,
+      allowNull: false,
+    },
     group_id: DataTypes.UUID,
     name: DataTypes.STRING,
     email: DataTypes.STRING,
     password_hash: DataTypes.STRING,
-    created_at: DataTypes.DATE
+    created_at: {
+        type: DataTypes.DATE,
+        defaultValue: DataTypes.NOW,
+    },
+    updated_at: {
+        type: DataTypes.DATE,
+        defaultValue: DataTypes.NOW,
+    },
+    deleted_at: {
+        type: DataTypes.DATE,
+        allowNull: true,
+    }
   }, {
     sequelize,
     modelName: 'users',
