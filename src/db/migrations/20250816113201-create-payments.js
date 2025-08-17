@@ -2,10 +2,20 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
     async up(queryInterface, Sequelize) {
-        await queryInterface.createTable('users', {
+        await queryInterface.createTable('payments', {
             id: {
+                autoIncrement: true,
                 primaryKey: true,
-                type: Sequelize.UUID,
+                type: Sequelize.INTEGER,
+            },
+            booking_id: {
+                type: Sequelize.INTEGER,
+                references: {
+                    model: 'bookings',
+                    key: 'id',
+                },
+                onUpdate: 'CASCADE',
+                onDelete: 'CASCADE',
             },
             group_id: {
                 type: Sequelize.INTEGER,
@@ -16,32 +26,39 @@ module.exports = {
                 onUpdate: 'CASCADE',
                 onDelete: 'CASCADE',
             },
-            name: {
+            payment_method: {
                 type: Sequelize.STRING,
             },
-            email: {
+            billing_address: {
                 type: Sequelize.STRING,
             },
-            password_hash: {
+            amount: {
+                type: Sequelize.DECIMAL,
+            },
+            tax: {
+                type: Sequelize.DECIMAL,
+            },
+            total: {
+                type: Sequelize.DECIMAL,
+            },
+            status: {
                 type: Sequelize.STRING,
             },
             created_at: {
                 type: Sequelize.DATE,
-
                 defaultValue: Sequelize.NOW,
             },
             updated_at: {
                 type: Sequelize.DATE,
-
                 defaultValue: Sequelize.NOW,
             },
             deleted_at: {
-                type: Sequelize.DATE,
                 allowNull: true,
+                type: Sequelize.DATE,
             },
         });
     },
     async down(queryInterface, Sequelize) {
-        await queryInterface.dropTable('users');
+        await queryInterface.dropTable('payments');
     },
 };

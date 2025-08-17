@@ -2,39 +2,37 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
     async up(queryInterface, Sequelize) {
-        await queryInterface.createTable('products', {
+        await queryInterface.createTable('activity_accessories', {
             id: {
-                allowNull: false,
+                autoIncrement: true,
                 primaryKey: true,
-                type: Sequelize.UUID,
+                type: Sequelize.INTEGER,
             },
-            name: {
-                type: Sequelize.STRING,
-            },
-            img_url: {
-                type: Sequelize.STRING,
-            },
-            brand_id: {
-                type: Sequelize.UUID,
+            activity_id: {
+                type: Sequelize.INTEGER,
                 references: {
-                    model: 'brands',
+                    model: 'activities',
                     key: 'id',
                 },
+                onUpdate: 'CASCADE',
+                onDelete: 'CASCADE',
             },
-            booth_id: {
-                type: Sequelize.UUID,
+            accessory_id: {
+                type: Sequelize.INTEGER,
                 references: {
-                    model: 'booths',
+                    model: 'accessories',
                     key: 'id',
                 },
+                onUpdate: 'CASCADE',
+                onDelete: 'CASCADE',
             },
             created_at: {
-                allowNull: false,
                 type: Sequelize.DATE,
+                defaultValue: Sequelize.NOW,
             },
             updated_at: {
-                allowNull: false,
                 type: Sequelize.DATE,
+                defaultValue: Sequelize.NOW,
             },
             deleted_at: {
                 allowNull: true,
@@ -43,6 +41,6 @@ module.exports = {
         });
     },
     async down(queryInterface, Sequelize) {
-        await queryInterface.dropTable('products');
+        await queryInterface.dropTable('activity_accessories');
     },
 };

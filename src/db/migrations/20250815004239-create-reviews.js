@@ -2,10 +2,29 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
     async up(queryInterface, Sequelize) {
-        await queryInterface.createTable('users', {
+        await queryInterface.createTable('reviews', {
             id: {
+                autoIncrement: true,
                 primaryKey: true,
+                type: Sequelize.INTEGER,
+            },
+            activity_id: {
+                type: Sequelize.INTEGER,
+                references: {
+                    model: 'activities',
+                    key: 'id',
+                },
+                onUpdate: 'CASCADE',
+                onDelete: 'CASCADE',
+            },
+            user_id: {
                 type: Sequelize.UUID,
+                references: {
+                    model: 'users',
+                    key: 'id',
+                },
+                onUpdate: 'CASCADE',
+                onDelete: 'CASCADE',
             },
             group_id: {
                 type: Sequelize.INTEGER,
@@ -16,32 +35,27 @@ module.exports = {
                 onUpdate: 'CASCADE',
                 onDelete: 'CASCADE',
             },
-            name: {
-                type: Sequelize.STRING,
+            rating: {
+                type: Sequelize.INTEGER,
             },
-            email: {
-                type: Sequelize.STRING,
-            },
-            password_hash: {
-                type: Sequelize.STRING,
+            comment: {
+                type: Sequelize.TEXT,
             },
             created_at: {
                 type: Sequelize.DATE,
-
                 defaultValue: Sequelize.NOW,
             },
             updated_at: {
                 type: Sequelize.DATE,
-
                 defaultValue: Sequelize.NOW,
             },
             deleted_at: {
-                type: Sequelize.DATE,
                 allowNull: true,
+                type: Sequelize.DATE,
             },
         });
     },
     async down(queryInterface, Sequelize) {
-        await queryInterface.dropTable('users');
+        await queryInterface.dropTable('reviews');
     },
 };

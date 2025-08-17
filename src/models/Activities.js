@@ -1,7 +1,7 @@
 'use strict';
 const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-    class UserBooking extends Model {
+    class Activities extends Model {
         /**
          * Helper method for defining associations.
          * This method is not a part of Sequelize lifecycle.
@@ -11,31 +11,45 @@ module.exports = (sequelize, DataTypes) => {
             // define association here
         }
     }
-    UserBooking.init(
+    Activities.init(
         {
-            id: {
+			id : {
+				type: DataTypes.INTEGER,
+				primaryKey: true,
+				autoIncrement: true,
+				allowNull: false,
+			},
+            title: DataTypes.STRING,
+            description: DataTypes.TEXT,
+            category_id: { 
                 type: DataTypes.INTEGER,
-                primaryKey: true,
-                autoIncrement: true,
-                allowNull: false,
-            },
-            user_id: {
-                type: DataTypes.UUID,
                 references: {
-                    model: 'users',
+                    model: 'categories',
                     key: 'id',
                 },
                 onUpdate: 'CASCADE',
                 onDelete: 'CASCADE',
             },
-            booking_id: {
+            destination_id: {
                 type: DataTypes.INTEGER,
                 references: {
-                    model: 'bookings',
+                    model: 'destinations',
                     key: 'id',
                 },
                 onUpdate: 'CASCADE',
                 onDelete: 'CASCADE',
+            },
+            duration_minutes: {
+                type: DataTypes.INTEGER,
+            },
+            pricing: {
+                type: DataTypes.DECIMAL,
+            },
+            accessory_ids: {
+                type: DataTypes.ARRAY(DataTypes.INTEGER),
+            },
+            cancelable: {
+                type: DataTypes.STRING,
             },
             created_at: {
                 type: DataTypes.DATE,
@@ -54,7 +68,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         {
             sequelize,
-            modelName: 'user_booking',
+            modelName: 'activities',
             underscored: true,
             paranoid: true,
             createdAt: 'created_at',
@@ -62,5 +76,5 @@ module.exports = (sequelize, DataTypes) => {
             deletedAt: 'deleted_at',
         }
     );
-    return UserBooking;
+    return Activities;
 };

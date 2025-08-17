@@ -2,23 +2,28 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
     async up(queryInterface, Sequelize) {
-        await queryInterface.createTable('brands', {
+        await queryInterface.createTable('hosts', {
             id: {
-                allowNull: false,
                 primaryKey: true,
-                type: Sequelize.UUID,
+                autoIncrement: true,
+                type: Sequelize.INTEGER,
             },
             name: {
-                allowNull: false,
+                type: Sequelize.STRING,
+            },
+            bio: {
+                type: Sequelize.STRING,
+            },
+            profile_image_url: {
                 type: Sequelize.STRING,
             },
             created_at: {
-                allowNull: false,
                 type: Sequelize.DATE,
+                defaultValue: Sequelize.NOW,
             },
             updated_at: {
-                allowNull: false,
                 type: Sequelize.DATE,
+                defaultValue: Sequelize.NOW,
             },
             deleted_at: {
                 allowNull: true,
@@ -27,6 +32,6 @@ module.exports = {
         });
     },
     async down(queryInterface, Sequelize) {
-        await queryInterface.dropTable('brands');
+        await queryInterface.dropTable('hosts');
     },
 };

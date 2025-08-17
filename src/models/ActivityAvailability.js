@@ -1,7 +1,7 @@
 'use strict';
 const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-    class Users extends Model {
+    class ActivityAvailabilities extends Model {
         /**
          * Helper method for defining associations.
          * This method is not a part of Sequelize lifecycle.
@@ -11,39 +11,44 @@ module.exports = (sequelize, DataTypes) => {
             // define association here
         }
     }
-    Users.init(
+    ActivityAvailabilities.init(
         {
             id: {
-                type: DataTypes.UUID,
-                defaultValue: DataTypes.UUIDV4,
+                type: DataTypes.INTEGER,
                 primaryKey: true,
+                autoIncrement: true,
                 allowNull: false,
             },
-            group_id: {
-                type: DataTypes.UUID,
-				references: {
-					model: 'groups',
-					key: 'id',
-				},
-				onUpdate: 'CASCADE',
-				onDelete: 'CASCADE',
+            activity_package_id: {
+                type: DataTypes.INTEGER,
+                references: {
+                    model: 'activities',
+                    key: 'id',
+                },
+                onUpdate: 'CASCADE',
+                onDelete: 'CASCADE',
             },
-            name: {
-                type: DataTypes.STRING,
+            date: {
+                type: DataTypes.DATE,
             },
-            email: {
-                type: DataTypes.STRING,
+            start_time: {
+                type: DataTypes.TIME,
             },
-            password_hash: {
-                type: DataTypes.STRING,
+            end_time: {
+                type: DataTypes.TIME,
+            },
+            available_slots: {
+                type: DataTypes.INTEGER,
             },
             created_at: {
                 type: DataTypes.DATE,
                 defaultValue: DataTypes.NOW,
+                allowNull: false,
             },
             updated_at: {
                 type: DataTypes.DATE,
                 defaultValue: DataTypes.NOW,
+                allowNull: false,
             },
             deleted_at: {
                 type: DataTypes.DATE,
@@ -52,7 +57,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         {
             sequelize,
-            modelName: 'users',
+            modelName: 'activity_availabilities',
             underscored: true,
             paranoid: true,
             createdAt: 'created_at',
@@ -60,5 +65,5 @@ module.exports = (sequelize, DataTypes) => {
             deletedAt: 'deleted_at',
         }
     );
-    return Users;
+    return ActivityAvailabilities;
 };

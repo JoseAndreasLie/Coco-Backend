@@ -2,46 +2,48 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
     async up(queryInterface, Sequelize) {
-        await queryInterface.createTable('users', {
+        await queryInterface.createTable('activity_availabilities', {
             id: {
+                autoIncrement: true,
                 primaryKey: true,
-                type: Sequelize.UUID,
+                type: Sequelize.INTEGER,
             },
-            group_id: {
+            activity_package_id: {
                 type: Sequelize.INTEGER,
                 references: {
-                    model: 'groups',
+                    model: 'activity_packages',
                     key: 'id',
                 },
                 onUpdate: 'CASCADE',
                 onDelete: 'CASCADE',
             },
-            name: {
-                type: Sequelize.STRING,
+            date: {
+                type: Sequelize.DATE,
             },
-            email: {
-                type: Sequelize.STRING,
+            start_time: {
+                type: Sequelize.TIME,
             },
-            password_hash: {
-                type: Sequelize.STRING,
+            end_time: {
+                type: Sequelize.TIME,
+            },
+            available_slots: {
+                type: Sequelize.INTEGER,
             },
             created_at: {
                 type: Sequelize.DATE,
-
                 defaultValue: Sequelize.NOW,
             },
             updated_at: {
                 type: Sequelize.DATE,
-
                 defaultValue: Sequelize.NOW,
             },
             deleted_at: {
-                type: Sequelize.DATE,
                 allowNull: true,
+                type: Sequelize.DATE,
             },
         });
     },
     async down(queryInterface, Sequelize) {
-        await queryInterface.dropTable('users');
+        await queryInterface.dropTable('activity_availabilities');
     },
 };

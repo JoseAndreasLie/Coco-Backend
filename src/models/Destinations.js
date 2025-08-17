@@ -1,7 +1,7 @@
 'use strict';
 const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-    class Users extends Model {
+    class Destinations extends Model {
         /**
          * Helper method for defining associations.
          * This method is not a part of Sequelize lifecycle.
@@ -11,39 +11,32 @@ module.exports = (sequelize, DataTypes) => {
             // define association here
         }
     }
-    Users.init(
+    Destinations.init(
         {
             id: {
-                type: DataTypes.UUID,
-                defaultValue: DataTypes.UUIDV4,
+                type: DataTypes.INTEGER,
                 primaryKey: true,
+                autoIncrement: true,
                 allowNull: false,
-            },
-            group_id: {
-                type: DataTypes.UUID,
-				references: {
-					model: 'groups',
-					key: 'id',
-				},
-				onUpdate: 'CASCADE',
-				onDelete: 'CASCADE',
             },
             name: {
                 type: DataTypes.STRING,
             },
-            email: {
-                type: DataTypes.STRING,
+            description: {
+                type: DataTypes.TEXT,
             },
-            password_hash: {
+            image_url: {
                 type: DataTypes.STRING,
             },
             created_at: {
                 type: DataTypes.DATE,
                 defaultValue: DataTypes.NOW,
+                allowNull: false,
             },
             updated_at: {
                 type: DataTypes.DATE,
                 defaultValue: DataTypes.NOW,
+                allowNull: false,
             },
             deleted_at: {
                 type: DataTypes.DATE,
@@ -52,7 +45,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         {
             sequelize,
-            modelName: 'users',
+            modelName: 'destinations',
             underscored: true,
             paranoid: true,
             createdAt: 'created_at',
@@ -60,5 +53,5 @@ module.exports = (sequelize, DataTypes) => {
             deletedAt: 'deleted_at',
         }
     );
-    return Users;
+    return Destinations;
 };

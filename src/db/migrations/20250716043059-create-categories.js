@@ -2,10 +2,10 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
     async up(queryInterface, Sequelize) {
-        await queryInterface.createTable('groups', {
+        await queryInterface.createTable('categories', {
             id: {
-                autoIncrement: true,
                 primaryKey: true,
+                autoIncrement: true,
                 type: Sequelize.INTEGER,
             },
             name: {
@@ -14,26 +14,21 @@ module.exports = {
             description: {
                 type: Sequelize.TEXT,
             },
-            session: {
-                type: Sequelize.STRING,
-            },
             created_at: {
                 type: Sequelize.DATE,
-
                 defaultValue: Sequelize.NOW,
             },
             updated_at: {
                 type: Sequelize.DATE,
-
                 defaultValue: Sequelize.NOW,
             },
             deleted_at: {
-                type: Sequelize.DATE,
                 allowNull: true,
+                type: Sequelize.DATE,
             },
         });
     },
     async down(queryInterface, Sequelize) {
-        await queryInterface.dropTable('groups');
+        await queryInterface.dropTable('categories');
     },
 };

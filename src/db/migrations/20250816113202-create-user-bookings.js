@@ -2,47 +2,40 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
     async up(queryInterface, Sequelize) {
-        await queryInterface.createTable('queue_entries', {
+        await queryInterface.createTable('user_bookings', {
             id: {
-                allowNull: false,
+                autoIncrement: true,
                 primaryKey: true,
-                type: Sequelize.UUID,
-            },
-            device_id: {
-                type: Sequelize.STRING,
-            },
-            booth_id: {
-                type: Sequelize.UUID,
-                references: {
-                    model: 'booths',
-                    key: 'id',
-                },
-            },
-            ticket_code: {
-                type: Sequelize.STRING,
-            },
-            queue_number: {
                 type: Sequelize.INTEGER,
             },
-            join_time: {
-                type: Sequelize.DATE,
+            user_id: {
+                type: Sequelize.UUID,
+                references: {
+                    model: 'users',
+                    key: 'id',
+                },
+                onUpdate: 'CASCADE',
+                onDelete: 'CASCADE',
             },
-            called_time: {
-                type: Sequelize.DATE,
+            booking_id: {
+                type: Sequelize.INTEGER,
+                references: {
+                    model: 'bookings',
+                    key: 'id',
+                },
+                onUpdate: 'CASCADE',
+                onDelete: 'CASCADE',
             },
-            served_time: {
-                type: Sequelize.DATE,
-            },
-            status: {
+            role: {
                 type: Sequelize.STRING,
             },
             created_at: {
-                allowNull: false,
                 type: Sequelize.DATE,
+                defaultValue: Sequelize.NOW,
             },
             updated_at: {
-                allowNull: false,
                 type: Sequelize.DATE,
+                defaultValue: Sequelize.NOW,
             },
             deleted_at: {
                 allowNull: true,
@@ -51,6 +44,6 @@ module.exports = {
         });
     },
     async down(queryInterface, Sequelize) {
-        await queryInterface.dropTable('queue_entries');
+        await queryInterface.dropTable('user_bookings');
     },
 };
