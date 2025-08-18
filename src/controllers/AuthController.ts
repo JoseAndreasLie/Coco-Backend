@@ -52,10 +52,10 @@ export default class AuthController {
 
     login = async (req: Request, res: Response) => {
         try {
-            const { email, password } = req.body;
+            const { p_email, p_password } = req.body;
             const user = await this.authService.loginWithEmailPassword(
-                email.toLowerCase(),
-                password
+                p_email.toLowerCase(),
+                p_password
             );
 
             const { message } = user.response;
