@@ -21,10 +21,22 @@ router.post(
     authController.login
 );
 
-router.get(
-    '/', 
-    // auth(),
+router.post(
+    '/rpc/search_detailed_activities', 
+    auth(),
     activitiesController.getAllActivities
+);
+
+router.get(
+    '/activity_packages',
+    auth(),
+    activitiesController.getActivityPackages
+);
+
+router.post(
+    '/rpc/get_top_destinations',
+    auth(),
+    activitiesController.getTopDestination
 );
 
 const defaultRoutes = [
