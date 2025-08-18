@@ -1,7 +1,7 @@
 'use strict';
 const { Model } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-    class ActivityImages extends Model {
+    class Categories extends Model {
         /**
          * Helper method for defining associations.
          * This method is not a part of Sequelize lifecycle.
@@ -9,10 +9,10 @@ module.exports = (sequelize, DataTypes) => {
          */
         static associate(models) {
             // define association here
-            ActivityImages.belongsTo(models.activities, { foreignKey: 'activity_id' });
+            Categories.hasMany(models.activities, { foreignKey: 'category_id' });
         }
     }
-    ActivityImages.init(
+    Categories.init(
         {
             id: {
                 type: DataTypes.INTEGER,
@@ -20,21 +20,8 @@ module.exports = (sequelize, DataTypes) => {
                 autoIncrement: true,
                 allowNull: false,
             },
-            activity_id: {
-                type: DataTypes.INTEGER,
-                references: {
-                    model: 'activities',
-                    key: 'id',
-                },
-                onUpdate: 'CASCADE',
-                onDelete: 'CASCADE',
-            },
-            image_url: {
-                type: DataTypes.STRING
-            },
-            image_type: {
-                type: DataTypes.STRING
-            },
+            name: DataTypes.STRING,
+            description: DataTypes.TEXT,
             created_at: {
                 type: DataTypes.DATE,
                 defaultValue: DataTypes.NOW,
@@ -52,7 +39,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         {
             sequelize,
-            modelName: 'activity_images',
+            modelName: 'categories',
             underscored: true,
             paranoid: true,
             createdAt: 'created_at',
@@ -60,5 +47,5 @@ module.exports = (sequelize, DataTypes) => {
             deletedAt: 'deleted_at',
         }
     );
-    return ActivityImages;
+    return Categories;
 };
