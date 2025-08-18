@@ -32,7 +32,7 @@ app.get('/api/v1/test', async (req, res) => {
     res.status(200).send('Congratulations! API is working!');
 });
 
-app.use('/api/v1', routes);
+app.use('/rest/v1', routes);
 
 // send back a 404 error for any unknown api request
 app.use((req: Request, res: Response, next: NextFunction) => {
