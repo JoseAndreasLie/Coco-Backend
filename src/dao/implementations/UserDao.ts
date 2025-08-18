@@ -2,7 +2,7 @@ import models from '../../models';
 import IUserDao from '../contracts/IUserDao';
 import SuperDao from './SuperDao';
 
-const User = models.user;
+const User = models.users;
 
 export default class UserDao extends SuperDao implements IUserDao {
     constructor() {
