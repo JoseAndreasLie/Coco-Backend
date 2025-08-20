@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
         static associate(models) {
             // define association here
             Activities.belongsTo(models.categories, { foreignKey: 'category_id' });
-            Activities.belongsTo(models.destinations, { foreignKey: 'destination_id' });
+            Activities.belongsTo(models.destinations, { as: 'destination', foreignKey: 'destination_id' });
             Activities.belongsToMany(models.accessories, { through: 'activity_accessories', foreignKey: 'activity_id', otherKey: 'accessory_id' });
             Activities.hasMany(models.activity_packages, { foreignKey: 'activity_id', as: 'packages' });
             Activities.hasMany(models.activity_images, { foreignKey: 'activity_id', as: 'images' });
@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
 				type: DataTypes.INTEGER,
 				primaryKey: true,
 				autoIncrement: true,
-				allowNull: false,
+				
 			},
             title: DataTypes.STRING,
             description: DataTypes.TEXT,
@@ -54,17 +54,15 @@ module.exports = (sequelize, DataTypes) => {
                 type: DataTypes.ARRAY(DataTypes.INTEGER),
             },
             cancelable: {
-                type: DataTypes.STRING,
+                type: DataTypes.TEXT,
             },
             created_at: {
                 type: DataTypes.DATE,
-                defaultValue: DataTypes.NOW,
-                allowNull: false,
+                defaultValue: DataTypes.NOW
             },
             updated_at: {
                 type: DataTypes.DATE,
-                defaultValue: DataTypes.NOW,
-                allowNull: false,
+                defaultValue: DataTypes.NOW
             },
             deleted_at: {
                 type: DataTypes.DATE,
