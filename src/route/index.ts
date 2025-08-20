@@ -41,6 +41,12 @@ router.get(
     bookingsController.getBookingsByEmail
 );
 
+router.get(
+    '/rpc/get_booking_details',
+    // auth(),
+    bookingsController.getBookingDetailsById
+);
+
 router.post(
     '/rpc/get_top_destinations',
     auth(),

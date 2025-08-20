@@ -32,6 +32,9 @@ module.exports = (sequelize, DataTypes) => {
             description: {
                 type: DataTypes.TEXT,
             },
+            notice: {
+                type: DataTypes.TEXT,
+            },
             price_per_person: {
                 type: DataTypes.DECIMAL,
             },

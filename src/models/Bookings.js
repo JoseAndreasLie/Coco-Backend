@@ -10,7 +10,10 @@ module.exports = (sequelize, DataTypes) => {
         static associate(models) {
             // define association here
             Bookings.belongsTo(models.activity_availabilities, { as: 'availability', foreignKey: 'availability_id' });
-            Bookings.belongsTo(models.activity_packages, { foreignKey: 'activity_package_id', as: 'package' })
+            Bookings.belongsTo(models.activity_packages, { foreignKey: 'activity_package_id', as: 'package' });
+            Bookings.hasMany(models.user_bookings, { as: 'user_booking', foreignKey: 'booking_id' });
+            Bookings.belongsToMany(models.users, { through: 'user_bookings', foreignKey: 'booking_id', otherKey: 'user_id' });
+            Bookings.belongsTo(models.users, { foreignKey: 'planner_id', as: 'planner' });
         }
     }
     Bookings.init(
@@ -47,6 +50,15 @@ module.exports = (sequelize, DataTypes) => {
             },
             date: {
                 type: DataTypes.DATE,
+            },
+            planner_id: {
+                type: DataTypes.UUID,
+                references: {
+                    model: 'users',
+                    key: 'id',
+                },
+                onUpdate: 'CASCADE',
+                onDelete: 'CASCADE',
             },
             total_price: {
                 type: DataTypes.DECIMAL,
