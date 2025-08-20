@@ -30,11 +30,18 @@ export default class ActivitiesService {
             const userEmail = user.email;
             const userBookings = await this.userBookingsDao.findAllBookings(userEmail);
 
-            const { booking } = userBookings
+            const flattened = userBookings.map(item => ({
+                ...item,
+                booking: undefined,
+                planner: undefined,
+                date: item.booking?.date,
+                planner_name: item.planner?.planner_name,
+                activity_title: item.booking?.package?.activity?.activity_title,
+                destination_name: item.booking?.package?.activity?.destination?.destination_name,
+                destination_image: item.booking?.package?.activity?.destination?.destination_image,
+              }));
 
-            console.log(booking)
-
-            return userBookings;
+            return flattened;
 
         } catch (e) {
             logger.error(e);

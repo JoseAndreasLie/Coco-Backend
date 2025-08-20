@@ -11,7 +11,7 @@ export default class UserBookingsDao extends SuperDao implements IUserBookingsDa
         super(UserBookings);
     }
 
-    findAllBookings(email: string) {
+    async findAllBookings(email: string) {
         // const userBookings = UserBookings.findAll({
         //     where: { email },
         //     attributes: [
@@ -67,13 +67,16 @@ export default class UserBookingsDao extends SuperDao implements IUserBookingsDa
         //     ]
         // });
 
-        const userBookings = UserBookings.findAll({
+        const userBookings = await UserBookings.findAll({
             where : { email : email },
+            attributes : {
+                exclude: ['created_at', 'updated_at', 'deleted_at']
+            },
             include : [
                 {
                     model: models.bookings,
                     as: 'booking',
-                    attributes: [['id', 'booking_id']],
+                    attributes: [['id', 'booking_id'], 'date'],
                     include : [
                         {
                             model: models.activity_packages,
@@ -103,7 +106,10 @@ export default class UserBookingsDao extends SuperDao implements IUserBookingsDa
                 }
             ]
         });
+        console.log(userBookings.booking);
+        const plainBookings = userBookings.map(b => b.toJSON());
 
-        return userBookings;
+
+        return plainBookings;
     }
 }
