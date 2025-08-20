@@ -29,6 +29,9 @@ module.exports = (sequelize, DataTypes) => {
             profile_image_url: {
                 type: DataTypes.STRING,
             },
+            contact: {
+                type: DataTypes.STRING,
+            },
             created_at: {
                 type: DataTypes.DATE,
                 defaultValue: DataTypes.NOW,
