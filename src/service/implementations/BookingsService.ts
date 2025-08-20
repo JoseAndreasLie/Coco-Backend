@@ -15,18 +15,27 @@ export default class ActivitiesService {
         this.userBookingsDao = new UserBookingsDao();
     }
 
-    getBookingByEmail = async (email: string) => {
+    getBookingById = async (user_id: string) => {
         try {
-            const user = await this.userDao.findByEmail(email);
+            const user = await this.userDao.findOne(
+                { 
+                    where: { id : user_id } 
+                }
+            );
+
             if (!user) {
                 throw { status: httpStatus.NOT_FOUND, message: 'User not found' };
             }
 
-            const userId = user.id;
-            const userBookings = await this.userBookingsDao.findAllBookings(userId);
+            const userEmail = user.email;
+            const userBookings = await this.userBookingsDao.findAllBookings(userEmail);
+
+            const { booking } = userBookings
+
+            console.log(booking)
 
             return userBookings;
-            
+
         } catch (e) {
             logger.error(e);
             throw e;

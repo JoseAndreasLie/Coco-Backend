@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
             // define association here
             UserBookings.belongsTo(models.bookings, { foreignKey: 'booking_id' });
             UserBookings.belongsTo(models.users, { foreignKey: 'user_id' });
+            UserBookings.belongsTo(models.users, { foreignKey: 'planner_id', as: 'planner' });
         }
     }
     UserBookings.init(
@@ -19,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
                 type: DataTypes.INTEGER,
                 primaryKey: true,
                 autoIncrement: true,
-                allowNull: false,
+                
             },
             user_id: {
                 type: DataTypes.UUID,
@@ -39,15 +40,30 @@ module.exports = (sequelize, DataTypes) => {
                 onUpdate: 'CASCADE',
                 onDelete: 'CASCADE',
             },
+            planner_id: {
+                type: DataTypes.UUID,
+                references: {
+                    model: 'users',
+                    key: 'id',
+                },
+                onUpdate: 'CASCADE',
+                onDelete: 'CASCADE',
+            },
+            status: {
+                type: DataTypes.STRING
+            },
+            email: {
+                type: DataTypes.STRING
+            },
             created_at: {
                 type: DataTypes.DATE,
                 defaultValue: DataTypes.NOW,
-                allowNull: false,
+                
             },
             updated_at: {
                 type: DataTypes.DATE,
                 defaultValue: DataTypes.NOW,
-                allowNull: false,
+                
             },
             deleted_at: {
                 type: DataTypes.DATE,

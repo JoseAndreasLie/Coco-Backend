@@ -4,7 +4,7 @@ import { ApiServiceResponse } from '../@types/apiServiceResponse';
 import { logger } from '../config/logger';
 import BookingsService from '../service/implementations/BookingsService';
 
-export default class AuthController {
+export default class BookingsController {
     private bookingsService: BookingsService;
 
     constructor() {
@@ -12,15 +12,15 @@ export default class AuthController {
     }
 
     getBookingsByEmail = async (req: Request, res: Response) => {
-        const { email } = req.query;
+        const { p_user_id } = req.body;
 
-        if (!email) {
-            return res.status(httpStatus.BAD_REQUEST).send('Email is required');
+        if (!p_user_id) {
+            return res.status(httpStatus.BAD_REQUEST).send('User ID is required');
         }
 
         try {
-            const bookings: ApiServiceResponse = await this.bookingsService.getBookingByEmail(
-                String(email)
+            const bookings: ApiServiceResponse = await this.bookingsService.getBookingById(
+                p_user_id
             );
             res.status(httpStatus.OK).send(bookings);
         } catch (e) {

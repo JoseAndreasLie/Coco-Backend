@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
             // define association here
             ActivityPackages.belongsTo(models.activities, { foreignKey: 'activity_id', as: 'activity' });
             ActivityPackages.belongsTo(models.hosts, { foreignKey: 'host_id', as: 'host' });
-            ActivityPackages.hasMany(models.activity_availabilities, { foreignKey: 'activity_package_id', as: 'package' });
+            ActivityPackages.belongsTo(models.bookings, { foreignKey: 'activity_package_id', as: 'package' })
         }
     }
     ActivityPackages.init(
@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
                 type: DataTypes.INTEGER,
                 primaryKey: true,
                 autoIncrement: true,
-                allowNull: false,
+                
             },
             activity_id: {
                 type: DataTypes.INTEGER,
@@ -59,12 +59,12 @@ module.exports = (sequelize, DataTypes) => {
             created_at: {
                 type: DataTypes.DATE,
                 defaultValue: DataTypes.NOW,
-                allowNull: false,
+                
             },
             updated_at: {
                 type: DataTypes.DATE,
                 defaultValue: DataTypes.NOW,
-                allowNull: false,
+                
             },
             deleted_at: {
                 type: DataTypes.DATE,

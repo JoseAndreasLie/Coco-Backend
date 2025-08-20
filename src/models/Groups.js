@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
                 type: DataTypes.INTEGER,
                 autoIncrement: true,
                 primaryKey: true,
-                allowNull: false,
+                
             },
             name: {
                 type: DataTypes.STRING,
@@ -31,12 +31,12 @@ module.exports = (sequelize, DataTypes) => {
             created_at: {
                 type: DataTypes.DATE,
                 defaultValue: DataTypes.NOW,
-                allowNull: false,
+                
             },
             updated_at: {
                 type: DataTypes.DATE,
                 defaultValue: DataTypes.NOW,
-                allowNull: false,
+                
             },
             deleted_at: {
                 type: DataTypes.DATE,

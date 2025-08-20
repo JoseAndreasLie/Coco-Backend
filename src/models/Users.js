@@ -9,6 +9,7 @@ module.exports = (sequelize, DataTypes) => {
          */
         static associate(models) {
             // define association here
+            Users.hasMany(models.user_bookings, { foreignKey: 'planner_id' , as: 'planner'})
         }
     }
     Users.init(
@@ -17,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
                 type: DataTypes.UUID,
                 defaultValue: DataTypes.UUIDV4,
                 primaryKey: true,
-                allowNull: false,
+                
             },
             group_id: {
                 type: DataTypes.UUID,

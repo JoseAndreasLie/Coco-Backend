@@ -36,7 +36,7 @@ router.get(
 );
 
 router.get(
-    '/bookings',
+    '/rpc/get_user_bookings',
     // auth(),
     bookingsController.getBookingsByEmail
 );

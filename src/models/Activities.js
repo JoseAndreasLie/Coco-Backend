@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
 				type: DataTypes.INTEGER,
 				primaryKey: true,
 				autoIncrement: true,
-				allowNull: false,
+				
 			},
             title: DataTypes.STRING,
             description: DataTypes.TEXT,
@@ -54,17 +54,15 @@ module.exports = (sequelize, DataTypes) => {
                 type: DataTypes.ARRAY(DataTypes.INTEGER),
             },
             cancelable: {
-                type: DataTypes.STRING,
+                type: DataTypes.TEXT,
             },
             created_at: {
                 type: DataTypes.DATE,
-                defaultValue: DataTypes.NOW,
-                allowNull: false,
+                defaultValue: DataTypes.NOW
             },
             updated_at: {
                 type: DataTypes.DATE,
-                defaultValue: DataTypes.NOW,
-                allowNull: false,
+                defaultValue: DataTypes.NOW
             },
             deleted_at: {
                 type: DataTypes.DATE,
