@@ -25,7 +25,7 @@ router.post(
 
 router.post(
     '/rpc/search_detailed_activities', 
-    auth(),
+    // auth(),
     activitiesController.getAllActivities
 );
 
@@ -35,7 +35,7 @@ router.get(
     activitiesController.getActivityPackages
 );
 
-router.get(
+router.post(
     '/rpc/get_user_bookings',
     // auth(),
     bookingsController.getBookingsByEmail
@@ -49,7 +49,7 @@ router.get(
 
 router.post(
     '/rpc/get_top_destinations',
-    auth(),
+    // auth(),
     activitiesController.getTopDestination
 );
 

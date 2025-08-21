@@ -55,6 +55,8 @@ export default class AuthService implements IAuthService {
             // parse sequelize object to raw object for delete password data
             userData = userData.toJSON();
 
+            console.log(userData)
+
             // delete password data in user json
             delete userData.password;
             delete userData.biometric;
