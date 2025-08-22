@@ -29,6 +29,12 @@ module.exports = (sequelize, DataTypes) => {
             image_url: {
                 type: DataTypes.STRING,
             },
+            longitude: {
+                type: DataTypes.DECIMAL,
+            },
+            latitude: {
+                type: DataTypes.DECIMAL,
+            },
             created_at: {
                 type: DataTypes.DATE,
                 defaultValue: DataTypes.NOW,

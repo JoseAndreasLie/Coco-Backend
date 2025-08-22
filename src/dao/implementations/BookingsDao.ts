@@ -35,7 +35,7 @@ export default class BookingsDao extends SuperDao implements IBookingsDao {
                                 {
                                     model: models.destinations,
                                     as: 'destination',
-                                    attributes: [['name', 'destination_name'], ['image_url', 'destination_image']]
+                                    attributes: [['name', 'destination_name'], ['image_url', 'destination_image'], 'longitude', 'latitude']
                                 }
                             ]
                         },
@@ -49,15 +49,12 @@ export default class BookingsDao extends SuperDao implements IBookingsDao {
                 {
                     model: models.users,
                     as: 'planner',
-                    attributes: [['name', 'planner_name']]
+                    attributes: [['name', 'planner_name'], 'id']
                 },
                 {
-                    model: models.users, 
-                    as: 'users',
-                    attributes: [['email', 'member_email']],
-                    through: {
-                        attributes: []
-                    }
+                    model: models.user_bookings, 
+                    as: 'user_booking',
+                    attributes: [['email', 'member_email']]
                 }
             ]
         });
