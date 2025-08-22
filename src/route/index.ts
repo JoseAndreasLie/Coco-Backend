@@ -25,7 +25,7 @@ router.post(
 
 router.post(
     '/rpc/search_detailed_activities', 
-    // auth(),
+    // auth() ,
     activitiesController.getAllActivities
 );
 
