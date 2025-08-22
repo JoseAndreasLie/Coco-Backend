@@ -36,8 +36,8 @@ export default class ActivitiesDao extends SuperDao implements IActivitiesDao {
                 {
                     model: models.activity_packages,
                     as: 'packages',
-                    attributes: {
-                        exclude: ['activity_id', 'host_id', 'created_at', 'updated_at', 'deleted_at']
+                    attributes: {  
+                        exclude: ['host_id', 'created_at', 'updated_at', 'deleted_at']
                     },
                     include: [
                         {

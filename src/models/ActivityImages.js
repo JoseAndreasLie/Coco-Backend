@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
                 type: DataTypes.INTEGER,
                 primaryKey: true,
                 autoIncrement: true,
-                allowNull: false,
+                
             },
             activity_id: {
                 type: DataTypes.INTEGER,
@@ -38,12 +38,12 @@ module.exports = (sequelize, DataTypes) => {
             created_at: {
                 type: DataTypes.DATE,
                 defaultValue: DataTypes.NOW,
-                allowNull: false,
+                
             },
             updated_at: {
                 type: DataTypes.DATE,
                 defaultValue: DataTypes.NOW,
-                allowNull: false,
+                
             },
             deleted_at: {
                 type: DataTypes.DATE,

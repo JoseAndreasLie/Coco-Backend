@@ -4,7 +4,7 @@ import { ApiServiceResponse } from '../@types/apiServiceResponse';
 import { logger } from '../config/logger';
 import ActivitiesService from '../service/implementations/ActivitiesService';
 
-export default class AuthController {
+export default class ActivitiesController {
     private activitiesService: ActivitiesService;
 
     constructor() {

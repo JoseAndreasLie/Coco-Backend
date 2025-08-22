@@ -6,8 +6,9 @@ module.exports = {
         return queryInterface.bulkInsert('users', [
             {
                 id : Sequelize.literal('gen_random_uuid()'),
-                name: 'John Doe',
-                email: 'john@gmail.com',
+                name: 'Arin',
+                email: 'arin@gmail.com',
+                group_id: 1,
                 password_hash: bcrypt.hashSync('123456', 8),
                 created_at: new Date(),
                 updated_at: new Date(),

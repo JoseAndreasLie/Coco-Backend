@@ -7,6 +7,7 @@ import { auth } from '../middlewares/auth';
 // import controllers
 import ActivitiesController from '../controllers/ActivitiesController';
 import AuthController from '../controllers/AuthController';
+import BookingsController from '../controllers/BookingsController'
 
 const router = Router();
 
@@ -14,6 +15,7 @@ const router = Router();
 // declare to const for controllers
 const activitiesController = new ActivitiesController();
 const authController = new AuthController();
+const bookingsController = new BookingsController();
 
 
 router.post(
@@ -23,19 +25,31 @@ router.post(
 
 router.post(
     '/rpc/search_detailed_activities', 
-    auth(),
+    // auth() ,
     activitiesController.getAllActivities
 );
 
 router.get(
     '/activity_packages',
-    auth(),
+    // auth(),
     activitiesController.getActivityPackages
 );
 
 router.post(
+    '/rpc/get_user_bookings',
+    // auth(),
+    bookingsController.getBookingsByEmail
+);
+
+router.get(
+    '/rpc/get_booking_details',
+    // auth(),
+    bookingsController.getBookingDetailsById
+);
+
+router.post(
     '/rpc/get_top_destinations',
-    auth(),
+    // auth(),
     activitiesController.getTopDestination
 );
 
