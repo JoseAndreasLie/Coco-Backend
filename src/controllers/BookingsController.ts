@@ -56,4 +56,28 @@ export default class BookingsController {
             res.status(httpStatus.BAD_GATEWAY).send(e);
         }
     }
+
+    createUserBookingsByEmails = async (req: Request, res: Response) => {
+        const { booking_id } = req.body;
+        const { emails } = req.body;
+
+        if (!booking_id) {
+            return res.status(httpStatus.BAD_REQUEST).send('Booking ID is required');
+        }
+
+        if (!emails) {
+            return res.status(httpStatus.BAD_REQUEST).send('Emails are required');
+        }
+
+        try {
+            const user_bookings: ApiServiceResponse = await this.bookingsService.createUserBookingsByEmails(
+                booking_id,
+                emails
+            );
+            res.status(httpStatus.OK).send(user_bookings);
+        } catch (e) {
+            logger.error(e);
+            res.status(httpStatus.BAD_GATEWAY).send(e);
+        }
+    }
 }

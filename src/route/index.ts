@@ -47,7 +47,13 @@ router.post(
     bookingsController.createBooking
 );
 
-router.get(
+router.post(
+    '/rpc/create_booking',
+    // auth(),
+    bookingsController.createBooking
+);
+
+router.post(
     '/rpc/get_booking_details',
     // auth(),
     bookingsController.getBookingDetailsById
@@ -57,6 +63,12 @@ router.post(
     '/rpc/get_top_destinations',
     // auth(),
     activitiesController.getTopDestination
+);
+
+router.post(
+    '/rpc/create_user_bookings',
+    // auth(),
+    bookingsController.createUserBookingsByEmails
 );
 
 const defaultRoutes = [
