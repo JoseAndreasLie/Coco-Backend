@@ -38,11 +38,12 @@ export default class ActivitiesService {
 
             const flattened = userBookings.map((item) => ({
                 ...item,
-                booking: undefined,
                 planner: undefined,
+                booking: undefined,
                 date: item.booking?.date,
-                planner_name: item.planner?.planner_name,
-                planner_id: item.planner?.id,
+                is_planner: item.planner?.id === user_id,
+                planner_name: item.planner?.name,
+                // planner_id: item.planner?.id,
                 activity_title: item.booking?.package?.activity?.activity_title,
                 destination_name: item.booking?.package?.activity?.destination?.destination_name,
                 destination_image: item.booking?.package?.activity?.destination?.destination_image,

@@ -51,7 +51,6 @@ export default class UserBookingsDao extends SuperDao implements IUserBookingsDa
                 }
             ]
         });
-        console.log(userBookings.booking);
         const plainBookings = userBookings.map(b => b.toJSON());
 
 

@@ -21,7 +21,7 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
--- Name: SequelizeMeta; Type: TABLE; Schema: public; Owner: hanywijaya
+-- Name: SequelizeMeta; Type: TABLE; Schema: public; Owner: ubuntu
 --
 
 CREATE TABLE public."SequelizeMeta" (
@@ -29,10 +29,10 @@ CREATE TABLE public."SequelizeMeta" (
 );
 
 
-ALTER TABLE public."SequelizeMeta" OWNER TO hanywijaya;
+ALTER TABLE public."SequelizeMeta" OWNER TO ubuntu;
 
 --
--- Name: accessories; Type: TABLE; Schema: public; Owner: hanywijaya
+-- Name: accessories; Type: TABLE; Schema: public; Owner: ubuntu
 --
 
 CREATE TABLE public.accessories (
@@ -44,10 +44,10 @@ CREATE TABLE public.accessories (
 );
 
 
-ALTER TABLE public.accessories OWNER TO hanywijaya;
+ALTER TABLE public.accessories OWNER TO ubuntu;
 
 --
--- Name: accessories_id_seq; Type: SEQUENCE; Schema: public; Owner: hanywijaya
+-- Name: accessories_id_seq; Type: SEQUENCE; Schema: public; Owner: ubuntu
 --
 
 CREATE SEQUENCE public.accessories_id_seq
@@ -59,17 +59,17 @@ CREATE SEQUENCE public.accessories_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.accessories_id_seq OWNER TO hanywijaya;
+ALTER TABLE public.accessories_id_seq OWNER TO ubuntu;
 
 --
--- Name: accessories_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: hanywijaya
+-- Name: accessories_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ubuntu
 --
 
 ALTER SEQUENCE public.accessories_id_seq OWNED BY public.accessories.id;
 
 
 --
--- Name: activities; Type: TABLE; Schema: public; Owner: hanywijaya
+-- Name: activities; Type: TABLE; Schema: public; Owner: ubuntu
 --
 
 CREATE TABLE public.activities (
@@ -88,10 +88,10 @@ CREATE TABLE public.activities (
 );
 
 
-ALTER TABLE public.activities OWNER TO hanywijaya;
+ALTER TABLE public.activities OWNER TO ubuntu;
 
 --
--- Name: activities_id_seq; Type: SEQUENCE; Schema: public; Owner: hanywijaya
+-- Name: activities_id_seq; Type: SEQUENCE; Schema: public; Owner: ubuntu
 --
 
 CREATE SEQUENCE public.activities_id_seq
@@ -103,17 +103,17 @@ CREATE SEQUENCE public.activities_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.activities_id_seq OWNER TO hanywijaya;
+ALTER TABLE public.activities_id_seq OWNER TO ubuntu;
 
 --
--- Name: activities_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: hanywijaya
+-- Name: activities_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ubuntu
 --
 
 ALTER SEQUENCE public.activities_id_seq OWNED BY public.activities.id;
 
 
 --
--- Name: activity_accessories; Type: TABLE; Schema: public; Owner: hanywijaya
+-- Name: activity_accessories; Type: TABLE; Schema: public; Owner: ubuntu
 --
 
 CREATE TABLE public.activity_accessories (
@@ -126,10 +126,10 @@ CREATE TABLE public.activity_accessories (
 );
 
 
-ALTER TABLE public.activity_accessories OWNER TO hanywijaya;
+ALTER TABLE public.activity_accessories OWNER TO ubuntu;
 
 --
--- Name: activity_accessories_id_seq; Type: SEQUENCE; Schema: public; Owner: hanywijaya
+-- Name: activity_accessories_id_seq; Type: SEQUENCE; Schema: public; Owner: ubuntu
 --
 
 CREATE SEQUENCE public.activity_accessories_id_seq
@@ -141,17 +141,17 @@ CREATE SEQUENCE public.activity_accessories_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.activity_accessories_id_seq OWNER TO hanywijaya;
+ALTER TABLE public.activity_accessories_id_seq OWNER TO ubuntu;
 
 --
--- Name: activity_accessories_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: hanywijaya
+-- Name: activity_accessories_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ubuntu
 --
 
 ALTER SEQUENCE public.activity_accessories_id_seq OWNED BY public.activity_accessories.id;
 
 
 --
--- Name: activity_availabilities; Type: TABLE; Schema: public; Owner: hanywijaya
+-- Name: activity_availabilities; Type: TABLE; Schema: public; Owner: ubuntu
 --
 
 CREATE TABLE public.activity_availabilities (
@@ -167,10 +167,10 @@ CREATE TABLE public.activity_availabilities (
 );
 
 
-ALTER TABLE public.activity_availabilities OWNER TO hanywijaya;
+ALTER TABLE public.activity_availabilities OWNER TO ubuntu;
 
 --
--- Name: activity_availabilities_id_seq; Type: SEQUENCE; Schema: public; Owner: hanywijaya
+-- Name: activity_availabilities_id_seq; Type: SEQUENCE; Schema: public; Owner: ubuntu
 --
 
 CREATE SEQUENCE public.activity_availabilities_id_seq
@@ -182,17 +182,17 @@ CREATE SEQUENCE public.activity_availabilities_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.activity_availabilities_id_seq OWNER TO hanywijaya;
+ALTER TABLE public.activity_availabilities_id_seq OWNER TO ubuntu;
 
 --
--- Name: activity_availabilities_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: hanywijaya
+-- Name: activity_availabilities_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ubuntu
 --
 
 ALTER SEQUENCE public.activity_availabilities_id_seq OWNED BY public.activity_availabilities.id;
 
 
 --
--- Name: activity_images; Type: TABLE; Schema: public; Owner: hanywijaya
+-- Name: activity_images; Type: TABLE; Schema: public; Owner: ubuntu
 --
 
 CREATE TABLE public.activity_images (
@@ -206,10 +206,10 @@ CREATE TABLE public.activity_images (
 );
 
 
-ALTER TABLE public.activity_images OWNER TO hanywijaya;
+ALTER TABLE public.activity_images OWNER TO ubuntu;
 
 --
--- Name: activity_images_id_seq; Type: SEQUENCE; Schema: public; Owner: hanywijaya
+-- Name: activity_images_id_seq; Type: SEQUENCE; Schema: public; Owner: ubuntu
 --
 
 CREATE SEQUENCE public.activity_images_id_seq
@@ -221,17 +221,17 @@ CREATE SEQUENCE public.activity_images_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.activity_images_id_seq OWNER TO hanywijaya;
+ALTER TABLE public.activity_images_id_seq OWNER TO ubuntu;
 
 --
--- Name: activity_images_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: hanywijaya
+-- Name: activity_images_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ubuntu
 --
 
 ALTER SEQUENCE public.activity_images_id_seq OWNED BY public.activity_images.id;
 
 
 --
--- Name: activity_packages; Type: TABLE; Schema: public; Owner: hanywijaya
+-- Name: activity_packages; Type: TABLE; Schema: public; Owner: ubuntu
 --
 
 CREATE TABLE public.activity_packages (
@@ -255,10 +255,10 @@ CREATE TABLE public.activity_packages (
 );
 
 
-ALTER TABLE public.activity_packages OWNER TO hanywijaya;
+ALTER TABLE public.activity_packages OWNER TO ubuntu;
 
 --
--- Name: activity_packages_id_seq; Type: SEQUENCE; Schema: public; Owner: hanywijaya
+-- Name: activity_packages_id_seq; Type: SEQUENCE; Schema: public; Owner: ubuntu
 --
 
 CREATE SEQUENCE public.activity_packages_id_seq
@@ -270,17 +270,17 @@ CREATE SEQUENCE public.activity_packages_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.activity_packages_id_seq OWNER TO hanywijaya;
+ALTER TABLE public.activity_packages_id_seq OWNER TO ubuntu;
 
 --
--- Name: activity_packages_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: hanywijaya
+-- Name: activity_packages_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ubuntu
 --
 
 ALTER SEQUENCE public.activity_packages_id_seq OWNED BY public.activity_packages.id;
 
 
 --
--- Name: bookings; Type: TABLE; Schema: public; Owner: hanywijaya
+-- Name: bookings; Type: TABLE; Schema: public; Owner: ubuntu
 --
 
 CREATE TABLE public.bookings (
@@ -299,10 +299,10 @@ CREATE TABLE public.bookings (
 );
 
 
-ALTER TABLE public.bookings OWNER TO hanywijaya;
+ALTER TABLE public.bookings OWNER TO ubuntu;
 
 --
--- Name: bookings_id_seq; Type: SEQUENCE; Schema: public; Owner: hanywijaya
+-- Name: bookings_id_seq; Type: SEQUENCE; Schema: public; Owner: ubuntu
 --
 
 CREATE SEQUENCE public.bookings_id_seq
@@ -314,17 +314,17 @@ CREATE SEQUENCE public.bookings_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.bookings_id_seq OWNER TO hanywijaya;
+ALTER TABLE public.bookings_id_seq OWNER TO ubuntu;
 
 --
--- Name: bookings_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: hanywijaya
+-- Name: bookings_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ubuntu
 --
 
 ALTER SEQUENCE public.bookings_id_seq OWNED BY public.bookings.id;
 
 
 --
--- Name: categories; Type: TABLE; Schema: public; Owner: hanywijaya
+-- Name: categories; Type: TABLE; Schema: public; Owner: ubuntu
 --
 
 CREATE TABLE public.categories (
@@ -337,10 +337,10 @@ CREATE TABLE public.categories (
 );
 
 
-ALTER TABLE public.categories OWNER TO hanywijaya;
+ALTER TABLE public.categories OWNER TO ubuntu;
 
 --
--- Name: categories_id_seq; Type: SEQUENCE; Schema: public; Owner: hanywijaya
+-- Name: categories_id_seq; Type: SEQUENCE; Schema: public; Owner: ubuntu
 --
 
 CREATE SEQUENCE public.categories_id_seq
@@ -352,17 +352,17 @@ CREATE SEQUENCE public.categories_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.categories_id_seq OWNER TO hanywijaya;
+ALTER TABLE public.categories_id_seq OWNER TO ubuntu;
 
 --
--- Name: categories_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: hanywijaya
+-- Name: categories_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ubuntu
 --
 
 ALTER SEQUENCE public.categories_id_seq OWNED BY public.categories.id;
 
 
 --
--- Name: destinations; Type: TABLE; Schema: public; Owner: hanywijaya
+-- Name: destinations; Type: TABLE; Schema: public; Owner: ubuntu
 --
 
 CREATE TABLE public.destinations (
@@ -378,10 +378,10 @@ CREATE TABLE public.destinations (
 );
 
 
-ALTER TABLE public.destinations OWNER TO hanywijaya;
+ALTER TABLE public.destinations OWNER TO ubuntu;
 
 --
--- Name: destinations_id_seq; Type: SEQUENCE; Schema: public; Owner: hanywijaya
+-- Name: destinations_id_seq; Type: SEQUENCE; Schema: public; Owner: ubuntu
 --
 
 CREATE SEQUENCE public.destinations_id_seq
@@ -393,17 +393,17 @@ CREATE SEQUENCE public.destinations_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.destinations_id_seq OWNER TO hanywijaya;
+ALTER TABLE public.destinations_id_seq OWNER TO ubuntu;
 
 --
--- Name: destinations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: hanywijaya
+-- Name: destinations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ubuntu
 --
 
 ALTER SEQUENCE public.destinations_id_seq OWNED BY public.destinations.id;
 
 
 --
--- Name: groups; Type: TABLE; Schema: public; Owner: hanywijaya
+-- Name: groups; Type: TABLE; Schema: public; Owner: ubuntu
 --
 
 CREATE TABLE public.groups (
@@ -417,10 +417,10 @@ CREATE TABLE public.groups (
 );
 
 
-ALTER TABLE public.groups OWNER TO hanywijaya;
+ALTER TABLE public.groups OWNER TO ubuntu;
 
 --
--- Name: groups_id_seq; Type: SEQUENCE; Schema: public; Owner: hanywijaya
+-- Name: groups_id_seq; Type: SEQUENCE; Schema: public; Owner: ubuntu
 --
 
 CREATE SEQUENCE public.groups_id_seq
@@ -432,17 +432,17 @@ CREATE SEQUENCE public.groups_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.groups_id_seq OWNER TO hanywijaya;
+ALTER TABLE public.groups_id_seq OWNER TO ubuntu;
 
 --
--- Name: groups_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: hanywijaya
+-- Name: groups_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ubuntu
 --
 
 ALTER SEQUENCE public.groups_id_seq OWNED BY public.groups.id;
 
 
 --
--- Name: hosts; Type: TABLE; Schema: public; Owner: hanywijaya
+-- Name: hosts; Type: TABLE; Schema: public; Owner: ubuntu
 --
 
 CREATE TABLE public.hosts (
@@ -457,10 +457,10 @@ CREATE TABLE public.hosts (
 );
 
 
-ALTER TABLE public.hosts OWNER TO hanywijaya;
+ALTER TABLE public.hosts OWNER TO ubuntu;
 
 --
--- Name: hosts_id_seq; Type: SEQUENCE; Schema: public; Owner: hanywijaya
+-- Name: hosts_id_seq; Type: SEQUENCE; Schema: public; Owner: ubuntu
 --
 
 CREATE SEQUENCE public.hosts_id_seq
@@ -472,17 +472,17 @@ CREATE SEQUENCE public.hosts_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.hosts_id_seq OWNER TO hanywijaya;
+ALTER TABLE public.hosts_id_seq OWNER TO ubuntu;
 
 --
--- Name: hosts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: hanywijaya
+-- Name: hosts_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ubuntu
 --
 
 ALTER SEQUENCE public.hosts_id_seq OWNED BY public.hosts.id;
 
 
 --
--- Name: payments; Type: TABLE; Schema: public; Owner: hanywijaya
+-- Name: payments; Type: TABLE; Schema: public; Owner: ubuntu
 --
 
 CREATE TABLE public.payments (
@@ -501,10 +501,10 @@ CREATE TABLE public.payments (
 );
 
 
-ALTER TABLE public.payments OWNER TO hanywijaya;
+ALTER TABLE public.payments OWNER TO ubuntu;
 
 --
--- Name: payments_id_seq; Type: SEQUENCE; Schema: public; Owner: hanywijaya
+-- Name: payments_id_seq; Type: SEQUENCE; Schema: public; Owner: ubuntu
 --
 
 CREATE SEQUENCE public.payments_id_seq
@@ -516,17 +516,17 @@ CREATE SEQUENCE public.payments_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.payments_id_seq OWNER TO hanywijaya;
+ALTER TABLE public.payments_id_seq OWNER TO ubuntu;
 
 --
--- Name: payments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: hanywijaya
+-- Name: payments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ubuntu
 --
 
 ALTER SEQUENCE public.payments_id_seq OWNED BY public.payments.id;
 
 
 --
--- Name: reviews; Type: TABLE; Schema: public; Owner: hanywijaya
+-- Name: reviews; Type: TABLE; Schema: public; Owner: ubuntu
 --
 
 CREATE TABLE public.reviews (
@@ -542,10 +542,10 @@ CREATE TABLE public.reviews (
 );
 
 
-ALTER TABLE public.reviews OWNER TO hanywijaya;
+ALTER TABLE public.reviews OWNER TO ubuntu;
 
 --
--- Name: reviews_id_seq; Type: SEQUENCE; Schema: public; Owner: hanywijaya
+-- Name: reviews_id_seq; Type: SEQUENCE; Schema: public; Owner: ubuntu
 --
 
 CREATE SEQUENCE public.reviews_id_seq
@@ -557,17 +557,17 @@ CREATE SEQUENCE public.reviews_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.reviews_id_seq OWNER TO hanywijaya;
+ALTER TABLE public.reviews_id_seq OWNER TO ubuntu;
 
 --
--- Name: reviews_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: hanywijaya
+-- Name: reviews_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ubuntu
 --
 
 ALTER SEQUENCE public.reviews_id_seq OWNED BY public.reviews.id;
 
 
 --
--- Name: tokens; Type: TABLE; Schema: public; Owner: hanywijaya
+-- Name: tokens; Type: TABLE; Schema: public; Owner: ubuntu
 --
 
 CREATE TABLE public.tokens (
@@ -582,10 +582,10 @@ CREATE TABLE public.tokens (
 );
 
 
-ALTER TABLE public.tokens OWNER TO hanywijaya;
+ALTER TABLE public.tokens OWNER TO ubuntu;
 
 --
--- Name: tokens_id_seq; Type: SEQUENCE; Schema: public; Owner: hanywijaya
+-- Name: tokens_id_seq; Type: SEQUENCE; Schema: public; Owner: ubuntu
 --
 
 CREATE SEQUENCE public.tokens_id_seq
@@ -597,17 +597,17 @@ CREATE SEQUENCE public.tokens_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.tokens_id_seq OWNER TO hanywijaya;
+ALTER TABLE public.tokens_id_seq OWNER TO ubuntu;
 
 --
--- Name: tokens_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: hanywijaya
+-- Name: tokens_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ubuntu
 --
 
 ALTER SEQUENCE public.tokens_id_seq OWNED BY public.tokens.id;
 
 
 --
--- Name: user_bookings; Type: TABLE; Schema: public; Owner: hanywijaya
+-- Name: user_bookings; Type: TABLE; Schema: public; Owner: ubuntu
 --
 
 CREATE TABLE public.user_bookings (
@@ -623,10 +623,10 @@ CREATE TABLE public.user_bookings (
 );
 
 
-ALTER TABLE public.user_bookings OWNER TO hanywijaya;
+ALTER TABLE public.user_bookings OWNER TO ubuntu;
 
 --
--- Name: user_bookings_id_seq; Type: SEQUENCE; Schema: public; Owner: hanywijaya
+-- Name: user_bookings_id_seq; Type: SEQUENCE; Schema: public; Owner: ubuntu
 --
 
 CREATE SEQUENCE public.user_bookings_id_seq
@@ -638,17 +638,17 @@ CREATE SEQUENCE public.user_bookings_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.user_bookings_id_seq OWNER TO hanywijaya;
+ALTER TABLE public.user_bookings_id_seq OWNER TO ubuntu;
 
 --
--- Name: user_bookings_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: hanywijaya
+-- Name: user_bookings_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: ubuntu
 --
 
 ALTER SEQUENCE public.user_bookings_id_seq OWNED BY public.user_bookings.id;
 
 
 --
--- Name: users; Type: TABLE; Schema: public; Owner: hanywijaya
+-- Name: users; Type: TABLE; Schema: public; Owner: ubuntu
 --
 
 CREATE TABLE public.users (
@@ -663,115 +663,115 @@ CREATE TABLE public.users (
 );
 
 
-ALTER TABLE public.users OWNER TO hanywijaya;
+ALTER TABLE public.users OWNER TO ubuntu;
 
 --
--- Name: accessories id; Type: DEFAULT; Schema: public; Owner: hanywijaya
+-- Name: accessories id; Type: DEFAULT; Schema: public; Owner: ubuntu
 --
 
 ALTER TABLE ONLY public.accessories ALTER COLUMN id SET DEFAULT nextval('public.accessories_id_seq'::regclass);
 
 
 --
--- Name: activities id; Type: DEFAULT; Schema: public; Owner: hanywijaya
+-- Name: activities id; Type: DEFAULT; Schema: public; Owner: ubuntu
 --
 
 ALTER TABLE ONLY public.activities ALTER COLUMN id SET DEFAULT nextval('public.activities_id_seq'::regclass);
 
 
 --
--- Name: activity_accessories id; Type: DEFAULT; Schema: public; Owner: hanywijaya
+-- Name: activity_accessories id; Type: DEFAULT; Schema: public; Owner: ubuntu
 --
 
 ALTER TABLE ONLY public.activity_accessories ALTER COLUMN id SET DEFAULT nextval('public.activity_accessories_id_seq'::regclass);
 
 
 --
--- Name: activity_availabilities id; Type: DEFAULT; Schema: public; Owner: hanywijaya
+-- Name: activity_availabilities id; Type: DEFAULT; Schema: public; Owner: ubuntu
 --
 
 ALTER TABLE ONLY public.activity_availabilities ALTER COLUMN id SET DEFAULT nextval('public.activity_availabilities_id_seq'::regclass);
 
 
 --
--- Name: activity_images id; Type: DEFAULT; Schema: public; Owner: hanywijaya
+-- Name: activity_images id; Type: DEFAULT; Schema: public; Owner: ubuntu
 --
 
 ALTER TABLE ONLY public.activity_images ALTER COLUMN id SET DEFAULT nextval('public.activity_images_id_seq'::regclass);
 
 
 --
--- Name: activity_packages id; Type: DEFAULT; Schema: public; Owner: hanywijaya
+-- Name: activity_packages id; Type: DEFAULT; Schema: public; Owner: ubuntu
 --
 
 ALTER TABLE ONLY public.activity_packages ALTER COLUMN id SET DEFAULT nextval('public.activity_packages_id_seq'::regclass);
 
 
 --
--- Name: bookings id; Type: DEFAULT; Schema: public; Owner: hanywijaya
+-- Name: bookings id; Type: DEFAULT; Schema: public; Owner: ubuntu
 --
 
 ALTER TABLE ONLY public.bookings ALTER COLUMN id SET DEFAULT nextval('public.bookings_id_seq'::regclass);
 
 
 --
--- Name: categories id; Type: DEFAULT; Schema: public; Owner: hanywijaya
+-- Name: categories id; Type: DEFAULT; Schema: public; Owner: ubuntu
 --
 
 ALTER TABLE ONLY public.categories ALTER COLUMN id SET DEFAULT nextval('public.categories_id_seq'::regclass);
 
 
 --
--- Name: destinations id; Type: DEFAULT; Schema: public; Owner: hanywijaya
+-- Name: destinations id; Type: DEFAULT; Schema: public; Owner: ubuntu
 --
 
 ALTER TABLE ONLY public.destinations ALTER COLUMN id SET DEFAULT nextval('public.destinations_id_seq'::regclass);
 
 
 --
--- Name: groups id; Type: DEFAULT; Schema: public; Owner: hanywijaya
+-- Name: groups id; Type: DEFAULT; Schema: public; Owner: ubuntu
 --
 
 ALTER TABLE ONLY public.groups ALTER COLUMN id SET DEFAULT nextval('public.groups_id_seq'::regclass);
 
 
 --
--- Name: hosts id; Type: DEFAULT; Schema: public; Owner: hanywijaya
+-- Name: hosts id; Type: DEFAULT; Schema: public; Owner: ubuntu
 --
 
 ALTER TABLE ONLY public.hosts ALTER COLUMN id SET DEFAULT nextval('public.hosts_id_seq'::regclass);
 
 
 --
--- Name: payments id; Type: DEFAULT; Schema: public; Owner: hanywijaya
+-- Name: payments id; Type: DEFAULT; Schema: public; Owner: ubuntu
 --
 
 ALTER TABLE ONLY public.payments ALTER COLUMN id SET DEFAULT nextval('public.payments_id_seq'::regclass);
 
 
 --
--- Name: reviews id; Type: DEFAULT; Schema: public; Owner: hanywijaya
+-- Name: reviews id; Type: DEFAULT; Schema: public; Owner: ubuntu
 --
 
 ALTER TABLE ONLY public.reviews ALTER COLUMN id SET DEFAULT nextval('public.reviews_id_seq'::regclass);
 
 
 --
--- Name: tokens id; Type: DEFAULT; Schema: public; Owner: hanywijaya
+-- Name: tokens id; Type: DEFAULT; Schema: public; Owner: ubuntu
 --
 
 ALTER TABLE ONLY public.tokens ALTER COLUMN id SET DEFAULT nextval('public.tokens_id_seq'::regclass);
 
 
 --
--- Name: user_bookings id; Type: DEFAULT; Schema: public; Owner: hanywijaya
+-- Name: user_bookings id; Type: DEFAULT; Schema: public; Owner: ubuntu
 --
 
 ALTER TABLE ONLY public.user_bookings ALTER COLUMN id SET DEFAULT nextval('public.user_bookings_id_seq'::regclass);
 
 
 --
--- Data for Name: SequelizeMeta; Type: TABLE DATA; Schema: public; Owner: hanywijaya
+-- Data for Name: SequelizeMeta; Type: TABLE DATA; Schema: public; Owner: ubuntu
 --
 
 COPY public."SequelizeMeta" (name) FROM stdin;
@@ -804,7 +804,7 @@ COPY public."SequelizeMeta" (name) FROM stdin;
 
 
 --
--- Data for Name: accessories; Type: TABLE DATA; Schema: public; Owner: hanywijaya
+-- Data for Name: accessories; Type: TABLE DATA; Schema: public; Owner: ubuntu
 --
 
 COPY public.accessories (id, name, created_at, updated_at, deleted_at) FROM stdin;
@@ -818,7 +818,7 @@ COPY public.accessories (id, name, created_at, updated_at, deleted_at) FROM stdi
 
 
 --
--- Data for Name: activities; Type: TABLE DATA; Schema: public; Owner: hanywijaya
+-- Data for Name: activities; Type: TABLE DATA; Schema: public; Owner: ubuntu
 --
 
 COPY public.activities (id, title, description, category_id, destination_id, duration_minutes, pricing, accessory_ids, cancelable, created_at, updated_at, deleted_at) FROM stdin;
@@ -829,7 +829,7 @@ COPY public.activities (id, title, description, category_id, destination_id, dur
 5	Swimming with Manta Rays in Nusa Penida	An unforgettable experience swimming with graceful giant manta rays at Manta Point.	1	7	210	350000.00	{2,3,1,5,6}	Cancel your booking and receive the full value as a travel credit to use on any future activity with us.\n\nTravel Credit: If you cancel your booking at least 72 hours before the start time, you will receive a travel credit voucher for 100% of the amount paid.\n\nVoucher Validity: The travel credit is valid for 12 months from the date of your original booking.\n\nNo Refund: This booking is not eligible for a cash refund. All cancellations will be compensated with a travel credit only.\n\nCancellations within 72 hours: Cancellations made less than 72 hours before the activity are not eligible for travel credit.	2025-07-03 04:24:13.506686+07	\N	\N
 6	Pari Island Snorkeling Tour	A short getaway from Jakarta to enjoy the white sandy beaches and clear waters of the Thousand Islands.	1	14	360	350000.00	{2,3,1,5}	This policy is designed for travelers whose plans might shift. While bookings are non-refundable, we offer the flexibility to change your date.\n\nFree Rescheduling: You may reschedule your activity for a different date or time free of charge, provided you make the request at least 48 hours before the original start time. Rescheduling is subject to availability.\n\nNon-Refundable: All bookings are non-refundable. If you choose to cancel instead of reschedule, no refund will be provided.\n\nChanges within 48 hours: Rescheduling requests made less than 48 hours before the activity start time cannot be accommodated.	2025-07-03 04:24:13.506686+07	\N	\N
 7	Pink Beach Snorkeling Adventure	Enjoy the unique pink sand beach while exploring its underwater life in Komodo National Park.	1	2	240	950000.00	{2,3,1,5,4}	This policy is designed for travelers whose plans might shift. While bookings are non-refundable, we offer the flexibility to change your date.\n\nFree Rescheduling: You may reschedule your activity for a different date or time free of charge, provided you make the request at least 48 hours before the original start time. Rescheduling is subject to availability.\n\nNon-Refundable: All bookings are non-refundable. If you choose to cancel instead of reschedule, no refund will be provided.\n\nChanges within 48 hours: Rescheduling requests made less than 48 hours before the activity start time cannot be accommodated.	2025-07-03 04:24:13.506686+07	\N	\N
-8	Scuba Diving in Komodo National Park	Dive in one of the world's best dive sites, encountering Komodo dragons, manta rays, and sharks.	2	2	480	1800000.00	{2,3,1,5,4,6}	This policy is designed for travelers whose plans might shift. While bookings are non-refundable, we offer the flexibility to change your date.\n\nFree Rescheduling: You may reschedule your activity for a different date or time free of charge, provided you make the request at least 48 hours before the original start time. Rescheduling is subject to availability.\n\nNon-Refundable: All bookings are non-refundable. If you choose to cancel instead of reschedule, no refund will be provided.\n\nChanges within 48 hours: Rescheduling requests made less than 48 hours before the activity start time cannot be accommodated.	2025-07-03 04:24:13.506686+07	\N	\N
+8	Scuba Diving in Komodo National Park	Dive in one of the world''s best dive sites, encountering Komodo dragons, manta rays, and sharks.	2	2	480	1800000.00	{2,3,1,5,4,6}	This policy is designed for travelers whose plans might shift. While bookings are non-refundable, we offer the flexibility to change your date.\n\nFree Rescheduling: You may reschedule your activity for a different date or time free of charge, provided you make the request at least 48 hours before the original start time. Rescheduling is subject to availability.\n\nNon-Refundable: All bookings are non-refundable. If you choose to cancel instead of reschedule, no refund will be provided.\n\nChanges within 48 hours: Rescheduling requests made less than 48 hours before the activity start time cannot be accommodated.	2025-07-03 04:24:13.506686+07	\N	\N
 9	Wakatobi Deep Dive Experience	Explore the richest marine biodiversity in the world at the heart of the Coral Triangle.	2	6	420	1500000.00	{2,3,1,5,6}	This policy is designed for travelers whose plans might shift. While bookings are non-refundable, we offer the flexibility to change your date.\n\nFree Rescheduling: You may reschedule your activity for a different date or time free of charge, provided you make the request at least 48 hours before the original start time. Rescheduling is subject to availability.\n\nNon-Refundable: All bookings are non-refundable. If you choose to cancel instead of reschedule, no refund will be provided.\n\nChanges within 48 hours: Rescheduling requests made less than 48 hours before the activity start time cannot be accommodated.	2025-07-03 04:24:13.506686+07	\N	\N
 10	Diving the USAT Liberty Wreck, Tulamben	One of the best wreck diving spots in the world. Explore a US army transport ship that is now a marine paradise.	2	8	120	650000.00	{2,3,1,5,6}	This policy is designed for travelers whose plans might shift. While bookings are non-refundable, we offer the flexibility to change your date.\n\nFree Rescheduling: You may reschedule your activity for a different date or time free of charge, provided you make the request at least 48 hours before the original start time. Rescheduling is subject to availability.\n\nNon-Refundable: All bookings are non-refundable. If you choose to cancel instead of reschedule, no refund will be provided.\n\nChanges within 48 hours: Rescheduling requests made less than 48 hours before the activity start time cannot be accommodated.	2025-07-03 04:24:13.506686+07	\N	\N
 11	Diving at Kilometer Zero, Sabang	Experience the thrill of diving at the westernmost tip of Indonesia with challenging currents and amazing views.	2	9	180	500000.00	{2,3,1,5}	Due to the high demand and limited capacity for this activity, all bookings are final and non-refundable. Please ensure your travel dates are confirmed before booking.\n\nAll purchases are final. No refunds will be issued for cancellations or no-shows for any reason.\n\nThis policy is in place to ensure our hosts can secure equipment and personnel for a guaranteed number of participants.\n\nIn the rare event that the host must cancel the tour (e.g., extreme weather), you will be offered a full refund or the option to reschedule for a future date.	2025-07-03 04:24:13.506686+07	\N	\N
@@ -837,16 +837,16 @@ COPY public.activities (id, title, description, category_id, destination_id, dur
 13	Advanced Open Water in Gili Trawangan	Upgrade your diving skills with an Advanced Open Water course in the clear waters of Gili.	2	3	2880	4200000.00	{2,3,1,5}	Due to the high demand and limited capacity for this activity, all bookings are final and non-refundable. Please ensure your travel dates are confirmed before booking.\n\nAll purchases are final. No refunds will be issued for cancellations or no-shows for any reason.\n\nThis policy is in place to ensure our hosts can secure equipment and personnel for a guaranteed number of participants.\n\nIn the rare event that the host must cancel the tour (e.g., extreme weather), you will be offered a full refund or the option to reschedule for a future date.	2025-07-03 04:24:13.506686+07	\N	\N
 14	Wall Diving in Bunaken National Park	A thrilling experience diving along steep and deep coral walls.	2	5	150	1100000.00	{2,3,1,5}	Due to the high demand and limited capacity for this activity, all bookings are final and non-refundable. Please ensure your travel dates are confirmed before booking.\n\nAll purchases are final. No refunds will be issued for cancellations or no-shows for any reason.\n\nThis policy is in place to ensure our hosts can secure equipment and personnel for a guaranteed number of participants.\n\nIn the rare event that the host must cancel the tour (e.g., extreme weather), you will be offered a full refund or the option to reschedule for a future date.	2025-07-03 04:24:13.506686+07	\N	\N
 15	Mount Bromo Sunrise Tour	An iconic jeep tour to witness the magical sunrise with the backdrop of Mt. Bromo, Batok, and Semeru.	3	10	720	550000.00	{2,3,4}	Due to the high demand and limited capacity for this activity, all bookings are final and non-refundable. Please ensure your travel dates are confirmed before booking.\n\nAll purchases are final. No refunds will be issued for cancellations or no-shows for any reason.\n\nThis policy is in place to ensure our hosts can secure equipment and personnel for a guaranteed number of participants.\n\nIn the rare event that the host must cancel the tour (e.g., extreme weather), you will be offered a full refund or the option to reschedule for a future date.	2025-07-03 04:24:13.506686+07	\N	\N
-16	Ubud Rice Terraces & Luwak Coffee Tour	Explore the green Tegalalang rice terraces and learn the process of making the world's most expensive coffee.	3	11	240	300000.00	{2,3}	Life is unpredictable, and we understand that plans can change. This activity offers a flexible cancellation policy to give you peace of mind.\n\nFull Refund: You are eligible for a 100% refund if you cancel your booking at least 24 hours before the scheduled start time of the activity.\n\nCancellations within 24 hours: If you cancel less than 24 hours before the activity's start time, the amount you paid will not be refunded.\n\nNo-Shows: No-shows will be considered a last-minute cancellation and are not eligible for a refund.\n\nChanges: Any changes to your booking must be made at least 24 hours before the start time.	2025-07-03 04:24:13.506686+07	\N	\N
-17	Prambanan & Borobudur Temple Exploration	Visit two UNESCO World Heritage sites in one day, masterpieces of Hindu and Buddhist architecture.	3	12	480	450000.00	{2,3,4}	Life is unpredictable, and we understand that plans can change. This activity offers a flexible cancellation policy to give you peace of mind.\n\nFull Refund: You are eligible for a 100% refund if you cancel your booking at least 24 hours before the scheduled start time of the activity.\n\nCancellations within 24 hours: If you cancel less than 24 hours before the activity's start time, the amount you paid will not be refunded.\n\nNo-Shows: No-shows will be considered a last-minute cancellation and are not eligible for a refund.\n\nChanges: Any changes to your booking must be made at least 24 hours before the start time.	2025-07-03 04:24:13.506686+07	\N	\N
-18	Ijen Crater & Blue Fire Hike	A nighttime trek to witness the rare blue fire phenomenon and the stunning acidic crater lake.	3	13	600	400000.00	{2,3,4}	Life is unpredictable, and we understand that plans can change. This activity offers a flexible cancellation policy to give you peace of mind.\n\nFull Refund: You are eligible for a 100% refund if you cancel your booking at least 24 hours before the scheduled start time of the activity.\n\nCancellations within 24 hours: If you cancel less than 24 hours before the activity's start time, the amount you paid will not be refunded.\n\nNo-Shows: No-shows will be considered a last-minute cancellation and are not eligible for a refund.\n\nChanges: Any changes to your booking must be made at least 24 hours before the start time.	2025-07-03 04:24:13.506686+07	\N	\N
-19	Komodo Dragon Trek on Rinca Island	Walk in the native habitat of the world's largest prehistoric lizard, accompanied by an experienced ranger.	3	2	180	250000.00	{2,3}	Life is unpredictable, and we understand that plans can change. This activity offers a flexible cancellation policy to give you peace of mind.\n\nFull Refund: You are eligible for a 100% refund if you cancel your booking at least 24 hours before the scheduled start time of the activity.\n\nCancellations within 24 hours: If you cancel less than 24 hours before the activity's start time, the amount you paid will not be refunded.\n\nNo-Shows: No-shows will be considered a last-minute cancellation and are not eligible for a refund.\n\nChanges: Any changes to your booking must be made at least 24 hours before the start time.	2025-07-03 04:24:13.506686+07	\N	\N
-20	Yogyakarta Culture and Culinary Tour	Explore the Sultan's Palace, Water Castle, and taste local culinary delights like Gudeg and Kopi Joss.	3	12	360	250000.00	{2,3}	Life is unpredictable, and we understand that plans can change. This activity offers a flexible cancellation policy to give you peace of mind.\n\nFull Refund: You are eligible for a 100% refund if you cancel your booking at least 24 hours before the scheduled start time of the activity.\n\nCancellations within 24 hours: If you cancel less than 24 hours before the activity's start time, the amount you paid will not be refunded.\n\nNo-Shows: No-shows will be considered a last-minute cancellation and are not eligible for a refund.\n\nChanges: Any changes to your booking must be made at least 24 hours before the start time.	2025-07-03 04:24:13.506686+07	\N	\N
+16	Ubud Rice Terraces & Luwak Coffee Tour	Explore the green Tegalalang rice terraces and learn the process of making the world''s most expensive coffee.	3	11	240	300000.00	{2,3}	Life is unpredictable, and we understand that plans can change. This activity offers a flexible cancellation policy to give you peace of mind.\n\nFull Refund: You are eligible for a 100% refund if you cancel your booking at least 24 hours before the scheduled start time of the activity.\n\nCancellations within 24 hours: If you cancel less than 24 hours before the activity''s start time, the amount you paid will not be refunded.\n\nNo-Shows: No-shows will be considered a last-minute cancellation and are not eligible for a refund.\n\nChanges: Any changes to your booking must be made at least 24 hours before the start time.	2025-07-03 04:24:13.506686+07	\N	\N
+17	Prambanan & Borobudur Temple Exploration	Visit two UNESCO World Heritage sites in one day, masterpieces of Hindu and Buddhist architecture.	3	12	480	450000.00	{2,3,4}	Life is unpredictable, and we understand that plans can change. This activity offers a flexible cancellation policy to give you peace of mind.\n\nFull Refund: You are eligible for a 100% refund if you cancel your booking at least 24 hours before the scheduled start time of the activity.\n\nCancellations within 24 hours: If you cancel less than 24 hours before the activity''s start time, the amount you paid will not be refunded.\n\nNo-Shows: No-shows will be considered a last-minute cancellation and are not eligible for a refund.\n\nChanges: Any changes to your booking must be made at least 24 hours before the start time.	2025-07-03 04:24:13.506686+07	\N	\N
+18	Ijen Crater & Blue Fire Hike	A nighttime trek to witness the rare blue fire phenomenon and the stunning acidic crater lake.	3	13	600	400000.00	{2,3,4}	Life is unpredictable, and we understand that plans can change. This activity offers a flexible cancellation policy to give you peace of mind.\n\nFull Refund: You are eligible for a 100% refund if you cancel your booking at least 24 hours before the scheduled start time of the activity.\n\nCancellations within 24 hours: If you cancel less than 24 hours before the activity''s start time, the amount you paid will not be refunded.\n\nNo-Shows: No-shows will be considered a last-minute cancellation and are not eligible for a refund.\n\nChanges: Any changes to your booking must be made at least 24 hours before the start time.	2025-07-03 04:24:13.506686+07	\N	\N
+19	Komodo Dragon Trek on Rinca Island	Walk in the native habitat of the world''s largest prehistoric lizard, accompanied by an experienced ranger.	3	2	180	250000.00	{2,3}	Life is unpredictable, and we understand that plans can change. This activity offers a flexible cancellation policy to give you peace of mind.\n\nFull Refund: You are eligible for a 100% refund if you cancel your booking at least 24 hours before the scheduled start time of the activity.\n\nCancellations within 24 hours: If you cancel less than 24 hours before the activity''s start time, the amount you paid will not be refunded.\n\nNo-Shows: No-shows will be considered a last-minute cancellation and are not eligible for a refund.\n\nChanges: Any changes to your booking must be made at least 24 hours before the start time.	2025-07-03 04:24:13.506686+07	\N	\N
+20	Yogyakarta Culture and Culinary Tour	Explore the Sultan''s Palace, Water Castle, and taste local culinary delights like Gudeg and Kopi Joss.	3	12	360	250000.00	{2,3}	Life is unpredictable, and we understand that plans can change. This activity offers a flexible cancellation policy to give you peace of mind.\n\nFull Refund: You are eligible for a 100% refund if you cancel your booking at least 24 hours before the scheduled start time of the activity.\n\nCancellations within 24 hours: If you cancel less than 24 hours before the activity''s start time, the amount you paid will not be refunded.\n\nNo-Shows: No-shows will be considered a last-minute cancellation and are not eligible for a refund.\n\nChanges: Any changes to your booking must be made at least 24 hours before the start time.	2025-07-03 04:24:13.506686+07	\N	\N
 \.
 
 
 --
--- Data for Name: activity_accessories; Type: TABLE DATA; Schema: public; Owner: hanywijaya
+-- Data for Name: activity_accessories; Type: TABLE DATA; Schema: public; Owner: ubuntu
 --
 
 COPY public.activity_accessories (id, activity_id, accessory_id, created_at, updated_at, deleted_at) FROM stdin;
@@ -937,7 +937,7 @@ COPY public.activity_accessories (id, activity_id, accessory_id, created_at, upd
 
 
 --
--- Data for Name: activity_availabilities; Type: TABLE DATA; Schema: public; Owner: hanywijaya
+-- Data for Name: activity_availabilities; Type: TABLE DATA; Schema: public; Owner: ubuntu
 --
 
 COPY public.activity_availabilities (id, activity_package_id, date, start_time, end_time, available_slots, created_at, updated_at, deleted_at) FROM stdin;
@@ -949,7 +949,7 @@ COPY public.activity_availabilities (id, activity_package_id, date, start_time, 
 
 
 --
--- Data for Name: activity_images; Type: TABLE DATA; Schema: public; Owner: hanywijaya
+-- Data for Name: activity_images; Type: TABLE DATA; Schema: public; Owner: ubuntu
 --
 
 COPY public.activity_images (id, activity_id, image_url, image_type, created_at, updated_at, deleted_at) FROM stdin;
@@ -1037,7 +1037,7 @@ COPY public.activity_images (id, activity_id, image_url, image_type, created_at,
 
 
 --
--- Data for Name: activity_packages; Type: TABLE DATA; Schema: public; Owner: hanywijaya
+-- Data for Name: activity_packages; Type: TABLE DATA; Schema: public; Owner: ubuntu
 --
 
 COPY public.activity_packages (id, activity_id, name, description, price_per_person, min_participants, max_participants, start_time, end_time, host_id, address, image_url, created_at, updated_at, deleted_at, activity_package_id, notice) FROM stdin;
@@ -1122,7 +1122,7 @@ COPY public.activity_packages (id, activity_id, name, description, price_per_per
 
 
 --
--- Data for Name: bookings; Type: TABLE DATA; Schema: public; Owner: hanywijaya
+-- Data for Name: bookings; Type: TABLE DATA; Schema: public; Owner: ubuntu
 --
 
 COPY public.bookings (id, user_id, availability_id, participants, total_price, status, created_at, updated_at, deleted_at, activity_package_id, date, planner_id) FROM stdin;
@@ -1132,7 +1132,7 @@ COPY public.bookings (id, user_id, availability_id, participants, total_price, s
 
 
 --
--- Data for Name: categories; Type: TABLE DATA; Schema: public; Owner: hanywijaya
+-- Data for Name: categories; Type: TABLE DATA; Schema: public; Owner: ubuntu
 --
 
 COPY public.categories (id, name, description, created_at, updated_at, deleted_at) FROM stdin;
@@ -1143,7 +1143,7 @@ COPY public.categories (id, name, description, created_at, updated_at, deleted_a
 
 
 --
--- Data for Name: destinations; Type: TABLE DATA; Schema: public; Owner: hanywijaya
+-- Data for Name: destinations; Type: TABLE DATA; Schema: public; Owner: ubuntu
 --
 
 COPY public.destinations (id, name, description, image_url, created_at, updated_at, deleted_at, longitude, latitude) FROM stdin;
@@ -1159,13 +1159,13 @@ COPY public.destinations (id, name, description, image_url, created_at, updated_
 10	Mount Bromo, East Java	An active volcano set in a dramatic sea of sand, famous for its breathtaking sunrise views over a otherworldly landscape.	https://picsum.photos/seed/dest-mount-bromo/800/600	2025-08-19 19:10:35.868933+07	2025-08-19 19:10:35.868933+07	\N	-7.94	112.95
 11	Ubud, Bali	Known as the cultural heart of Bali, offering lush green rice paddies, traditional crafts, and a serene, spiritual atmosphere.	https://picsum.photos/seed/dest-ubud/800/600	2025-08-19 19:10:35.868933+07	2025-08-19 19:10:35.868933+07	\N	-8.51	115.27
 12	Yogyakarta, DI Yogyakarta	The cultural soul of Java, home to ancient temples like Borobudur and Prambanan, as well as rich Javanese arts.	https://picsum.photos/seed/dest-yogyakarta/800/600	2025-08-19 19:10:35.868933+07	2025-08-19 19:10:35.868933+07	\N	-7.80	110.37
-13	Ijen Crater, East Java	A unique volcano featuring the world's largest acidic crater lake and the mesmerizing "blue fire" phenomenon.	https://picsum.photos/seed/dest-ijen-crater/800/600	2025-08-19 19:10:35.868933+07	2025-08-19 19:10:35.868933+07	\N	-8.06	114.24
+13	Ijen Crater, East Java	A unique volcano featuring the world''s largest acidic crater lake and the mesmerizing "blue fire" phenomenon.	https://picsum.photos/seed/dest-ijen-crater/800/600	2025-08-19 19:10:35.868933+07	2025-08-19 19:10:35.868933+07	\N	-8.06	114.24
 14	Thousand Islands, Jakarta	A chain of islands just off the coast of Jakarta, providing a quick tropical getaway for snorkeling and beach relaxation.	https://picsum.photos/seed/dest-thousand-islands/800/600	2025-08-19 19:10:35.868933+07	2025-08-19 19:10:35.868933+07	\N	-5.60	106.55
 \.
 
 
 --
--- Data for Name: groups; Type: TABLE DATA; Schema: public; Owner: hanywijaya
+-- Data for Name: groups; Type: TABLE DATA; Schema: public; Owner: ubuntu
 --
 
 COPY public.groups (id, name, description, session, created_at, updated_at, deleted_at) FROM stdin;
@@ -1175,11 +1175,11 @@ COPY public.groups (id, name, description, session, created_at, updated_at, dele
 
 
 --
--- Data for Name: hosts; Type: TABLE DATA; Schema: public; Owner: hanywijaya
+-- Data for Name: hosts; Type: TABLE DATA; Schema: public; Owner: ubuntu
 --
 
 COPY public.hosts (id, name, bio, profile_image_url, created_at, updated_at, deleted_at, contact) FROM stdin;
-3	Indo Dive Pro	A PADI 5-star dive center with a team of certified divemasters and instructors specializing in Indonesia's top dive sites.	https://picsum.photos/seed/indodive-logo/400/400	\N	\N	\N	\N
+3	Indo Dive Pro	A PADI 5-star dive center with a team of certified divemasters and instructors specializing in Indonesia''s top dive sites.	https://picsum.photos/seed/indodive-logo/400/400	\N	\N	\N	\N
 4	Bali Eco Ventures	A sustainable tour company based in Bali, committed to eco-friendly practices and authentic snorkeling experiences.	https://picsum.photos/seed/balieco-logo/400/400	\N	\N	\N	\N
 5	Nusantara Adventures	A leading tour operator offering diverse adventures across the Indonesian archipelago, from mountain peaks to pristine reefs.	https://picsum.photos/seed/nusantara-logo/400/400	\N	\N	\N	\N
 1	Oceanic Odyssey	Experts in marine safaris and liveaboard trips, guiding you to the best snorkeling and diving spots like Komodo and Raja Ampat.	https://picsum.photos/seed/oceanic-logo/400/400	\N	\N	\N	\N
@@ -1188,7 +1188,7 @@ COPY public.hosts (id, name, bio, profile_image_url, created_at, updated_at, del
 
 
 --
--- Data for Name: payments; Type: TABLE DATA; Schema: public; Owner: hanywijaya
+-- Data for Name: payments; Type: TABLE DATA; Schema: public; Owner: ubuntu
 --
 
 COPY public.payments (id, booking_id, group_id, payment_method, billing_address, amount, tax, total, status, created_at, updated_at, deleted_at) FROM stdin;
@@ -1196,7 +1196,7 @@ COPY public.payments (id, booking_id, group_id, payment_method, billing_address,
 
 
 --
--- Data for Name: reviews; Type: TABLE DATA; Schema: public; Owner: hanywijaya
+-- Data for Name: reviews; Type: TABLE DATA; Schema: public; Owner: ubuntu
 --
 
 COPY public.reviews (id, activity_id, user_id, group_id, rating, comment, created_at, updated_at, deleted_at) FROM stdin;
@@ -1204,7 +1204,7 @@ COPY public.reviews (id, activity_id, user_id, group_id, rating, comment, create
 
 
 --
--- Data for Name: tokens; Type: TABLE DATA; Schema: public; Owner: hanywijaya
+-- Data for Name: tokens; Type: TABLE DATA; Schema: public; Owner: ubuntu
 --
 
 COPY public.tokens (id, token, user_uuid, type, expires, blacklisted, created_at, updated_at) FROM stdin;
@@ -1212,7 +1212,7 @@ COPY public.tokens (id, token, user_uuid, type, expires, blacklisted, created_at
 
 
 --
--- Data for Name: user_bookings; Type: TABLE DATA; Schema: public; Owner: hanywijaya
+-- Data for Name: user_bookings; Type: TABLE DATA; Schema: public; Owner: ubuntu
 --
 
 COPY public.user_bookings (id, user_id, booking_id, created_at, updated_at, deleted_at, planner_id, status, email) FROM stdin;
@@ -1223,7 +1223,7 @@ COPY public.user_bookings (id, user_id, booking_id, created_at, updated_at, dele
 
 
 --
--- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: hanywijaya
+-- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: ubuntu
 --
 
 COPY public.users (id, group_id, name, email, password_hash, created_at, updated_at, deleted_at) FROM stdin;
@@ -1233,112 +1233,112 @@ COPY public.users (id, group_id, name, email, password_hash, created_at, updated
 
 
 --
--- Name: accessories_id_seq; Type: SEQUENCE SET; Schema: public; Owner: hanywijaya
+-- Name: accessories_id_seq; Type: SEQUENCE SET; Schema: public; Owner: ubuntu
 --
 
 SELECT pg_catalog.setval('public.accessories_id_seq', 1, false);
 
 
 --
--- Name: activities_id_seq; Type: SEQUENCE SET; Schema: public; Owner: hanywijaya
+-- Name: activities_id_seq; Type: SEQUENCE SET; Schema: public; Owner: ubuntu
 --
 
 SELECT pg_catalog.setval('public.activities_id_seq', 1, false);
 
 
 --
--- Name: activity_accessories_id_seq; Type: SEQUENCE SET; Schema: public; Owner: hanywijaya
+-- Name: activity_accessories_id_seq; Type: SEQUENCE SET; Schema: public; Owner: ubuntu
 --
 
 SELECT pg_catalog.setval('public.activity_accessories_id_seq', 1, false);
 
 
 --
--- Name: activity_availabilities_id_seq; Type: SEQUENCE SET; Schema: public; Owner: hanywijaya
+-- Name: activity_availabilities_id_seq; Type: SEQUENCE SET; Schema: public; Owner: ubuntu
 --
 
 SELECT pg_catalog.setval('public.activity_availabilities_id_seq', 1, false);
 
 
 --
--- Name: activity_images_id_seq; Type: SEQUENCE SET; Schema: public; Owner: hanywijaya
+-- Name: activity_images_id_seq; Type: SEQUENCE SET; Schema: public; Owner: ubuntu
 --
 
 SELECT pg_catalog.setval('public.activity_images_id_seq', 1, false);
 
 
 --
--- Name: activity_packages_id_seq; Type: SEQUENCE SET; Schema: public; Owner: hanywijaya
+-- Name: activity_packages_id_seq; Type: SEQUENCE SET; Schema: public; Owner: ubuntu
 --
 
 SELECT pg_catalog.setval('public.activity_packages_id_seq', 1, false);
 
 
 --
--- Name: bookings_id_seq; Type: SEQUENCE SET; Schema: public; Owner: hanywijaya
+-- Name: bookings_id_seq; Type: SEQUENCE SET; Schema: public; Owner: ubuntu
 --
 
 SELECT pg_catalog.setval('public.bookings_id_seq', 1, false);
 
 
 --
--- Name: categories_id_seq; Type: SEQUENCE SET; Schema: public; Owner: hanywijaya
+-- Name: categories_id_seq; Type: SEQUENCE SET; Schema: public; Owner: ubuntu
 --
 
 SELECT pg_catalog.setval('public.categories_id_seq', 1, false);
 
 
 --
--- Name: destinations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: hanywijaya
+-- Name: destinations_id_seq; Type: SEQUENCE SET; Schema: public; Owner: ubuntu
 --
 
 SELECT pg_catalog.setval('public.destinations_id_seq', 1, false);
 
 
 --
--- Name: groups_id_seq; Type: SEQUENCE SET; Schema: public; Owner: hanywijaya
+-- Name: groups_id_seq; Type: SEQUENCE SET; Schema: public; Owner: ubuntu
 --
 
 SELECT pg_catalog.setval('public.groups_id_seq', 1, false);
 
 
 --
--- Name: hosts_id_seq; Type: SEQUENCE SET; Schema: public; Owner: hanywijaya
+-- Name: hosts_id_seq; Type: SEQUENCE SET; Schema: public; Owner: ubuntu
 --
 
 SELECT pg_catalog.setval('public.hosts_id_seq', 1, false);
 
 
 --
--- Name: payments_id_seq; Type: SEQUENCE SET; Schema: public; Owner: hanywijaya
+-- Name: payments_id_seq; Type: SEQUENCE SET; Schema: public; Owner: ubuntu
 --
 
 SELECT pg_catalog.setval('public.payments_id_seq', 1, false);
 
 
 --
--- Name: reviews_id_seq; Type: SEQUENCE SET; Schema: public; Owner: hanywijaya
+-- Name: reviews_id_seq; Type: SEQUENCE SET; Schema: public; Owner: ubuntu
 --
 
 SELECT pg_catalog.setval('public.reviews_id_seq', 1, false);
 
 
 --
--- Name: tokens_id_seq; Type: SEQUENCE SET; Schema: public; Owner: hanywijaya
+-- Name: tokens_id_seq; Type: SEQUENCE SET; Schema: public; Owner: ubuntu
 --
 
 SELECT pg_catalog.setval('public.tokens_id_seq', 1, false);
 
 
 --
--- Name: user_bookings_id_seq; Type: SEQUENCE SET; Schema: public; Owner: hanywijaya
+-- Name: user_bookings_id_seq; Type: SEQUENCE SET; Schema: public; Owner: ubuntu
 --
 
 SELECT pg_catalog.setval('public.user_bookings_id_seq', 2, true);
 
 
 --
--- Name: SequelizeMeta SequelizeMeta_pkey; Type: CONSTRAINT; Schema: public; Owner: hanywijaya
+-- Name: SequelizeMeta SequelizeMeta_pkey; Type: CONSTRAINT; Schema: public; Owner: ubuntu
 --
 
 ALTER TABLE ONLY public."SequelizeMeta"
@@ -1346,7 +1346,7 @@ ALTER TABLE ONLY public."SequelizeMeta"
 
 
 --
--- Name: accessories accessories_pkey; Type: CONSTRAINT; Schema: public; Owner: hanywijaya
+-- Name: accessories accessories_pkey; Type: CONSTRAINT; Schema: public; Owner: ubuntu
 --
 
 ALTER TABLE ONLY public.accessories
@@ -1354,7 +1354,7 @@ ALTER TABLE ONLY public.accessories
 
 
 --
--- Name: activities activities_pkey; Type: CONSTRAINT; Schema: public; Owner: hanywijaya
+-- Name: activities activities_pkey; Type: CONSTRAINT; Schema: public; Owner: ubuntu
 --
 
 ALTER TABLE ONLY public.activities
@@ -1362,7 +1362,7 @@ ALTER TABLE ONLY public.activities
 
 
 --
--- Name: activity_accessories activity_accessories_pkey; Type: CONSTRAINT; Schema: public; Owner: hanywijaya
+-- Name: activity_accessories activity_accessories_pkey; Type: CONSTRAINT; Schema: public; Owner: ubuntu
 --
 
 ALTER TABLE ONLY public.activity_accessories
@@ -1370,7 +1370,7 @@ ALTER TABLE ONLY public.activity_accessories
 
 
 --
--- Name: activity_availabilities activity_availabilities_pkey; Type: CONSTRAINT; Schema: public; Owner: hanywijaya
+-- Name: activity_availabilities activity_availabilities_pkey; Type: CONSTRAINT; Schema: public; Owner: ubuntu
 --
 
 ALTER TABLE ONLY public.activity_availabilities
@@ -1378,7 +1378,7 @@ ALTER TABLE ONLY public.activity_availabilities
 
 
 --
--- Name: activity_images activity_images_pkey; Type: CONSTRAINT; Schema: public; Owner: hanywijaya
+-- Name: activity_images activity_images_pkey; Type: CONSTRAINT; Schema: public; Owner: ubuntu
 --
 
 ALTER TABLE ONLY public.activity_images
@@ -1386,7 +1386,7 @@ ALTER TABLE ONLY public.activity_images
 
 
 --
--- Name: activity_packages activity_packages_pkey; Type: CONSTRAINT; Schema: public; Owner: hanywijaya
+-- Name: activity_packages activity_packages_pkey; Type: CONSTRAINT; Schema: public; Owner: ubuntu
 --
 
 ALTER TABLE ONLY public.activity_packages
@@ -1394,7 +1394,7 @@ ALTER TABLE ONLY public.activity_packages
 
 
 --
--- Name: bookings bookings_pkey; Type: CONSTRAINT; Schema: public; Owner: hanywijaya
+-- Name: bookings bookings_pkey; Type: CONSTRAINT; Schema: public; Owner: ubuntu
 --
 
 ALTER TABLE ONLY public.bookings
@@ -1402,7 +1402,7 @@ ALTER TABLE ONLY public.bookings
 
 
 --
--- Name: categories categories_pkey; Type: CONSTRAINT; Schema: public; Owner: hanywijaya
+-- Name: categories categories_pkey; Type: CONSTRAINT; Schema: public; Owner: ubuntu
 --
 
 ALTER TABLE ONLY public.categories
@@ -1410,7 +1410,7 @@ ALTER TABLE ONLY public.categories
 
 
 --
--- Name: destinations destinations_pkey; Type: CONSTRAINT; Schema: public; Owner: hanywijaya
+-- Name: destinations destinations_pkey; Type: CONSTRAINT; Schema: public; Owner: ubuntu
 --
 
 ALTER TABLE ONLY public.destinations
@@ -1418,7 +1418,7 @@ ALTER TABLE ONLY public.destinations
 
 
 --
--- Name: groups groups_pkey; Type: CONSTRAINT; Schema: public; Owner: hanywijaya
+-- Name: groups groups_pkey; Type: CONSTRAINT; Schema: public; Owner: ubuntu
 --
 
 ALTER TABLE ONLY public.groups
@@ -1426,7 +1426,7 @@ ALTER TABLE ONLY public.groups
 
 
 --
--- Name: hosts hosts_pkey; Type: CONSTRAINT; Schema: public; Owner: hanywijaya
+-- Name: hosts hosts_pkey; Type: CONSTRAINT; Schema: public; Owner: ubuntu
 --
 
 ALTER TABLE ONLY public.hosts
@@ -1434,7 +1434,7 @@ ALTER TABLE ONLY public.hosts
 
 
 --
--- Name: payments payments_pkey; Type: CONSTRAINT; Schema: public; Owner: hanywijaya
+-- Name: payments payments_pkey; Type: CONSTRAINT; Schema: public; Owner: ubuntu
 --
 
 ALTER TABLE ONLY public.payments
@@ -1442,7 +1442,7 @@ ALTER TABLE ONLY public.payments
 
 
 --
--- Name: reviews reviews_pkey; Type: CONSTRAINT; Schema: public; Owner: hanywijaya
+-- Name: reviews reviews_pkey; Type: CONSTRAINT; Schema: public; Owner: ubuntu
 --
 
 ALTER TABLE ONLY public.reviews
@@ -1450,7 +1450,7 @@ ALTER TABLE ONLY public.reviews
 
 
 --
--- Name: tokens tokens_pkey; Type: CONSTRAINT; Schema: public; Owner: hanywijaya
+-- Name: tokens tokens_pkey; Type: CONSTRAINT; Schema: public; Owner: ubuntu
 --
 
 ALTER TABLE ONLY public.tokens
@@ -1458,7 +1458,7 @@ ALTER TABLE ONLY public.tokens
 
 
 --
--- Name: user_bookings user_bookings_pkey; Type: CONSTRAINT; Schema: public; Owner: hanywijaya
+-- Name: user_bookings user_bookings_pkey; Type: CONSTRAINT; Schema: public; Owner: ubuntu
 --
 
 ALTER TABLE ONLY public.user_bookings
@@ -1466,7 +1466,7 @@ ALTER TABLE ONLY public.user_bookings
 
 
 --
--- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: hanywijaya
+-- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: ubuntu
 --
 
 ALTER TABLE ONLY public.users
@@ -1474,7 +1474,7 @@ ALTER TABLE ONLY public.users
 
 
 --
--- Name: activities activities_category_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: hanywijaya
+-- Name: activities activities_category_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: ubuntu
 --
 
 ALTER TABLE ONLY public.activities
@@ -1482,7 +1482,7 @@ ALTER TABLE ONLY public.activities
 
 
 --
--- Name: activities activities_destination_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: hanywijaya
+-- Name: activities activities_destination_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: ubuntu
 --
 
 ALTER TABLE ONLY public.activities
@@ -1490,7 +1490,7 @@ ALTER TABLE ONLY public.activities
 
 
 --
--- Name: activity_accessories activity_accessories_accessory_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: hanywijaya
+-- Name: activity_accessories activity_accessories_accessory_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: ubuntu
 --
 
 ALTER TABLE ONLY public.activity_accessories
@@ -1498,7 +1498,7 @@ ALTER TABLE ONLY public.activity_accessories
 
 
 --
--- Name: activity_accessories activity_accessories_activity_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: hanywijaya
+-- Name: activity_accessories activity_accessories_activity_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: ubuntu
 --
 
 ALTER TABLE ONLY public.activity_accessories
@@ -1506,7 +1506,7 @@ ALTER TABLE ONLY public.activity_accessories
 
 
 --
--- Name: activity_availabilities activity_availabilities_activity_package_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: hanywijaya
+-- Name: activity_availabilities activity_availabilities_activity_package_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: ubuntu
 --
 
 ALTER TABLE ONLY public.activity_availabilities
@@ -1514,7 +1514,7 @@ ALTER TABLE ONLY public.activity_availabilities
 
 
 --
--- Name: activity_availabilities activity_availabilities_activity_package_id_fkey1; Type: FK CONSTRAINT; Schema: public; Owner: hanywijaya
+-- Name: activity_availabilities activity_availabilities_activity_package_id_fkey1; Type: FK CONSTRAINT; Schema: public; Owner: ubuntu
 --
 
 ALTER TABLE ONLY public.activity_availabilities
@@ -1522,7 +1522,7 @@ ALTER TABLE ONLY public.activity_availabilities
 
 
 --
--- Name: activity_images activity_images_activity_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: hanywijaya
+-- Name: activity_images activity_images_activity_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: ubuntu
 --
 
 ALTER TABLE ONLY public.activity_images
@@ -1530,7 +1530,7 @@ ALTER TABLE ONLY public.activity_images
 
 
 --
--- Name: activity_packages activity_packages_activity_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: hanywijaya
+-- Name: activity_packages activity_packages_activity_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: ubuntu
 --
 
 ALTER TABLE ONLY public.activity_packages
@@ -1538,7 +1538,7 @@ ALTER TABLE ONLY public.activity_packages
 
 
 --
--- Name: activity_packages activity_packages_activity_package_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: hanywijaya
+-- Name: activity_packages activity_packages_activity_package_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: ubuntu
 --
 
 ALTER TABLE ONLY public.activity_packages
@@ -1546,7 +1546,7 @@ ALTER TABLE ONLY public.activity_packages
 
 
 --
--- Name: activity_packages activity_packages_host_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: hanywijaya
+-- Name: activity_packages activity_packages_host_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: ubuntu
 --
 
 ALTER TABLE ONLY public.activity_packages
@@ -1554,7 +1554,7 @@ ALTER TABLE ONLY public.activity_packages
 
 
 --
--- Name: bookings bookings_activity_package_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: hanywijaya
+-- Name: bookings bookings_activity_package_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: ubuntu
 --
 
 ALTER TABLE ONLY public.bookings
@@ -1562,7 +1562,7 @@ ALTER TABLE ONLY public.bookings
 
 
 --
--- Name: bookings bookings_availability_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: hanywijaya
+-- Name: bookings bookings_availability_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: ubuntu
 --
 
 ALTER TABLE ONLY public.bookings
@@ -1570,7 +1570,7 @@ ALTER TABLE ONLY public.bookings
 
 
 --
--- Name: bookings bookings_planner_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: hanywijaya
+-- Name: bookings bookings_planner_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: ubuntu
 --
 
 ALTER TABLE ONLY public.bookings
@@ -1578,7 +1578,7 @@ ALTER TABLE ONLY public.bookings
 
 
 --
--- Name: bookings bookings_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: hanywijaya
+-- Name: bookings bookings_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: ubuntu
 --
 
 ALTER TABLE ONLY public.bookings
@@ -1586,7 +1586,7 @@ ALTER TABLE ONLY public.bookings
 
 
 --
--- Name: payments payments_booking_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: hanywijaya
+-- Name: payments payments_booking_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: ubuntu
 --
 
 ALTER TABLE ONLY public.payments
@@ -1594,7 +1594,7 @@ ALTER TABLE ONLY public.payments
 
 
 --
--- Name: payments payments_group_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: hanywijaya
+-- Name: payments payments_group_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: ubuntu
 --
 
 ALTER TABLE ONLY public.payments
@@ -1602,7 +1602,7 @@ ALTER TABLE ONLY public.payments
 
 
 --
--- Name: reviews reviews_activity_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: hanywijaya
+-- Name: reviews reviews_activity_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: ubuntu
 --
 
 ALTER TABLE ONLY public.reviews
@@ -1610,7 +1610,7 @@ ALTER TABLE ONLY public.reviews
 
 
 --
--- Name: reviews reviews_group_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: hanywijaya
+-- Name: reviews reviews_group_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: ubuntu
 --
 
 ALTER TABLE ONLY public.reviews
@@ -1618,7 +1618,7 @@ ALTER TABLE ONLY public.reviews
 
 
 --
--- Name: reviews reviews_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: hanywijaya
+-- Name: reviews reviews_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: ubuntu
 --
 
 ALTER TABLE ONLY public.reviews
@@ -1626,7 +1626,7 @@ ALTER TABLE ONLY public.reviews
 
 
 --
--- Name: user_bookings user_bookings_booking_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: hanywijaya
+-- Name: user_bookings user_bookings_booking_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: ubuntu
 --
 
 ALTER TABLE ONLY public.user_bookings
@@ -1634,7 +1634,7 @@ ALTER TABLE ONLY public.user_bookings
 
 
 --
--- Name: user_bookings user_bookings_planner_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: hanywijaya
+-- Name: user_bookings user_bookings_planner_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: ubuntu
 --
 
 ALTER TABLE ONLY public.user_bookings
@@ -1642,7 +1642,7 @@ ALTER TABLE ONLY public.user_bookings
 
 
 --
--- Name: user_bookings user_bookings_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: hanywijaya
+-- Name: user_bookings user_bookings_user_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: ubuntu
 --
 
 ALTER TABLE ONLY public.user_bookings
@@ -1650,7 +1650,7 @@ ALTER TABLE ONLY public.user_bookings
 
 
 --
--- Name: users users_group_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: hanywijaya
+-- Name: users users_group_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: ubuntu
 --
 
 ALTER TABLE ONLY public.users
