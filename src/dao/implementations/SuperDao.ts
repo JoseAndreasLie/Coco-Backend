@@ -94,6 +94,19 @@ export default class SuperDao implements ISuperDao {
             });
     }
 
+    public async createWithTransaction(data: object, options?: any, condition?: object) {
+        try {
+            if (condition) {
+                return this.Model.create(data, { decoded: options, ...condition });
+            }
+
+            return this.Model.create(data, { decoded: options });
+        } catch (e) {
+            logger.error(e);
+            console.log(e);
+        }
+    }
+
     public async findByWhere(
         where: object,
         attributes: string[] | undefined | unknown = undefined,

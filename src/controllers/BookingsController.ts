@@ -47,6 +47,16 @@ export default class BookingsController {
         }
     }
 
+    createBooking = async (req: Request, res: Response) => {
+        try {
+            const result = await this.bookingsService.createBooking(req, res);
+            res.status(httpStatus.CREATED).send(result);
+        } catch (e) {
+            logger.error(e);
+            res.status(httpStatus.BAD_GATEWAY).send(e);
+        }
+    }
+
     createUserBookingsByEmails = async (req: Request, res: Response) => {
         const { booking_id } = req.body;
         const { emails } = req.body;

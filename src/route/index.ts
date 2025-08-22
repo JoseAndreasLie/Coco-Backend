@@ -42,6 +42,18 @@ router.post(
 );
 
 router.post(
+    '/rpc/create_booking',
+    // auth(),
+    bookingsController.createBooking
+);
+
+router.post(
+    '/rpc/create_booking',
+    // auth(),
+    bookingsController.createBooking
+);
+
+router.post(
     '/rpc/get_booking_details',
     // auth(),
     bookingsController.getBookingDetailsById

@@ -18,4 +18,25 @@ export default class ActivityPackagesDao extends SuperDao implements IActivityPa
         });
         return activityPackages;
     }
+
+    findDestinationByPackageId(package_id: number){
+        const activity = ActivityPackages.findOne({
+            where: { id: package_id },
+            include: [
+                {
+                    model: models.activities,
+                    as : 'activity',
+                    attributes: ['destination_id'],
+                    include: [
+                        {
+                            model: models.destinations,
+                            as: 'destination',
+                            attributes: ['id', 'name', 'image_url', 'description']
+                        }
+                    ]
+                }
+            ]
+        });
+        return activity;
+    }
 }
