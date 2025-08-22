@@ -102,7 +102,7 @@ export default class UserBookingsDao extends SuperDao implements IUserBookingsDa
                 {
                     model: models.users,
                     as: 'planner',
-                    attributes: [['name', 'planner_name']]
+                    attributes: ['id', 'name']
                 }
             ]
         });

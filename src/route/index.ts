@@ -41,6 +41,12 @@ router.post(
     bookingsController.getBookingsByEmail
 );
 
+router.post(
+    '/rpc/create_booking',
+    // auth(),
+    bookingsController.createBooking
+);
+
 router.get(
     '/rpc/get_booking_details',
     // auth(),
