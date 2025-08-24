@@ -38,33 +38,4 @@ export default class ActivitiesService {
             throw e;
         }
     };
-
-    getFlashSaleList = async (userInfo) => {
-        try {
-            // // Assuming there's a method in UserDao to get the flash sale list
-            // const flashSaleList = await this.userDao.getFlashSaleList();
-            console.log('Fetching flash sale list for user:', userInfo);
-            const flashSaleList = [
-                {
-                    // Sample data structure
-                    id: 1,
-                    title: 'Flash Sale 1',
-                    discount: 50,
-                    startTime: new Date(),
-                    endTime: new Date(),
-                },
-                {
-                    "userInfo": userInfo, // Include user info in the response
-                },
-            ];
-            return responseHandler.returnSuccess(
-                httpStatus.OK,
-                'Flash Sale List Retrieved',
-                flashSaleList
-            );
-        } catch (e) {
-            logger.error(e);
-            return responseHandler.returnError(httpStatus.BAD_GATEWAY, 'Something Went Wrong!!');
-        }
-    };
 }
