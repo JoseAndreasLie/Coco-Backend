@@ -76,7 +76,8 @@ export default class ActivitiesService {
                 destination_image: b.package?.activity?.destination?.destination_image,
                 longitude: b.package?.activity?.destination?.longitude,
                 latitude: b.package?.activity?.destination?.latitude,
-                vendor_contact: b.package?.activity?.host?.host_contact,
+                vendor_name: b.package?.host?.host_name,
+                vendor_contact: b.package?.host?.host_contact,
                 important_notice: b.package?.important_notice,
                 included_accessories:
                     b.package?.activity?.accessories?.map((acc) => acc.name) || [],
@@ -196,9 +197,15 @@ export default class ActivitiesService {
                 throw { status: httpStatus.NOT_FOUND, message: 'Planner not found' };
             }
 
-            console.log(planner.email);
-
             emails.push(planner.email);
+
+            const existingBookings = await models.user_bookings.findAll({
+                where: { booking_id }
+            });
+
+            for (const eb of existingBookings) {
+                await eb.destroy();
+            }
 
             for (const email of emails) {
                 const user = await this.userDao.findByEmail(email);
@@ -207,10 +214,6 @@ export default class ActivitiesService {
                     where: { booking_id, email },
                     transaction,
                 });
-
-                if (existing) {
-                    await existing.destroy();
-                }
 
                 newEntries.push({
                     user_id: user ? user.id : null,

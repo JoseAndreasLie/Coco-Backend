@@ -42,7 +42,7 @@ export default class BookingsDao extends SuperDao implements IBookingsDao {
                         {
                             model: models.hosts,
                             as: 'host',
-                            attributes: [['name', 'host_name']]
+                            attributes: [['name', 'host_name'], ['contact', 'host_contact']]
                         }
                     ]
                 },
