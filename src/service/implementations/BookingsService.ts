@@ -10,6 +10,9 @@ import responseHandler from '../../helper/responseHandler';
 import { sequelize } from '../../models';
 import models from '../../models';
 
+require('dotenv').config();
+const nodemailer = require('nodemailer');
+
 export default class ActivitiesService {
     private userDao: UserDao;
     private userBookingsDao: UserBookingsDao;
@@ -162,8 +165,14 @@ export default class ActivitiesService {
                 booking_created_at: newBooking.created_at,
             };
 
+            const result = {
+                "message": "Booking confirmed successfully.",
+                "success": true, 
+                booking_details
+            };
+
             await t.commit();
-            return booking_details;
+            return result;
         } catch (e) {
             logger.error(e);
             await t.rollback();
@@ -229,8 +238,6 @@ export default class ActivitiesService {
             const updatedParticipants = created.length;
             const updatedTotalPrice = booking.total_price/booking.participants * created.length;
 
-            console.log(updatedParticipants, updatedTotalPrice)
-
             const updated = await models.bookings.update(
                 {
                     participants: updatedParticipants,
@@ -241,9 +248,60 @@ export default class ActivitiesService {
 
             await transaction.commit();
 
+            // Send email only if email configuration is available
+            if (process.env.EMAIL_HOST && process.env.EMAIL_USER && process.env.EMAIL_PASS) {
+                try {
+                    const transporter = nodemailer.createTransport({
+                        host: process.env.EMAIL_HOST,
+                        port: process.env.EMAIL_PORT ? parseInt(process.env.EMAIL_PORT) : 587,
+                        secure: true,
+                        auth: {
+                            user: process.env.EMAIL_USER,
+                            pass: process.env.EMAIL_PASS,
+                        },
+                    });
+
+                    const mailOptions = {
+                        from: `"Coco.co" <${process.env.EMAIL_USER}>`,
+                        to: `"no-reply" <${process.env.EMAIL_USER}>`,
+                        bcc: emails,
+                        subject: `Invitation to Join a Trip on coco.co`,
+                        text: `
+                        Dear coco.co Member,\n
+                        You have been invited to join an upcoming trip through coco.co.\n
+                        \n
+                        To view more details and confirm your participation, please click the link below:\n
+                        👉 https://testflight.apple.com/join/u61YVTya\n
+                        \n
+                        By joining this trip, you will be able to:\n
+                            \t- Access all trip details in one place.\n
+                            \t- Share the trip with friends or family members.\n
+                            \t- Stay updated with real-time notifications.\n
+                        \n
+                        If you haven't installed the coco.co app yet, you can download it via the App Store to get the full experience.\n
+                        \n
+                        We look forward to seeing you on this trip! 🚀\n
+                        \n
+                        Best regards,\n
+                        The coco.co Team
+                        `,
+                    };
+
+                    await transporter.sendMail(mailOptions);
+                } catch (emailError) {
+                    // Log email error but don't fail the entire operation
+                    logger.error('Email sending failed:', emailError);
+                }
+            } else {
+                logger.warn('Email configuration not found, skipping email notification');
+            }
+          
             return created;
         } catch (e) {
-            await transaction.rollback();
+            // Only rollback if transaction is still active
+            if (!transaction.finished) {
+                await transaction.rollback();
+            }
             logger.error(e);
             throw e;
         }
