@@ -59,7 +59,7 @@ export default class ActivitiesService {
         }
     };
 
-    getBookingDetailsById = async (booking_id: string) => {
+    getBookingDetailsById = async (booking_id: string, user_id: string) => {
         try {
             const booking = await this.bookingsDao.findBooking(booking_id);
 
@@ -71,6 +71,7 @@ export default class ActivitiesService {
                 planner: undefined,
                 user_booking: undefined,
                 planner_name: b.planner?.planner_name,
+                is_planner: b.planner?.id === user_id,
                 activity: undefined,
                 activity_title: b.package?.activity?.activity_title,
                 package_name: b.package.package_name,
@@ -78,7 +79,8 @@ export default class ActivitiesService {
                 destination_image: b.package?.activity?.destination?.destination_image,
                 longitude: b.package?.activity?.destination?.longitude,
                 latitude: b.package?.activity?.destination?.latitude,
-                vendor_contact: b.package?.activity?.host?.host_contact,
+                vendor_name: b.package?.host?.host_name,
+                vendor_contact: b.package?.host?.host_contact,
                 important_notice: b.package?.important_notice,
                 included_accessories:
                     b.package?.activity?.accessories?.map((acc) => acc.name) || [],
@@ -198,6 +200,21 @@ export default class ActivitiesService {
             }
 
             const planner_id = booking.planner.id;
+            const planner = await this.userDao.findOne({ where: { id: planner_id } });
+
+            if (!planner) {
+                throw { status: httpStatus.NOT_FOUND, message: 'Planner not found' };
+            }
+
+            emails.push(planner.email);
+
+            const existingBookings = await models.user_bookings.findAll({
+                where: { booking_id }
+            });
+
+            for (const eb of existingBookings) {
+                await eb.destroy();
+            }
 
             for (const email of emails) {
                 const user = await this.userDao.findByEmail(email);
@@ -206,10 +223,6 @@ export default class ActivitiesService {
                     where: { booking_id, email },
                     transaction,
                 });
-
-                if (existing) {
-                    await existing.update({ deleted_at: new Date() }, { transaction });
-                }
 
                 newEntries.push({
                     user_id: user ? user.id : null,
@@ -220,7 +233,20 @@ export default class ActivitiesService {
                 });
             }
 
-            const result = await models.user_bookings.bulkCreate(newEntries, { transaction });
+            const created = await models.user_bookings.bulkCreate(newEntries, { transaction });
+
+            const updatedParticipants = created.length;
+            const updatedTotalPrice = booking.total_price/booking.participants * created.length;
+
+            const updated = await models.bookings.update(
+                {
+                    participants: updatedParticipants,
+                    total_price: updatedTotalPrice,
+                },
+                { where: { id: booking_id }, transaction }
+            );
+
+            await transaction.commit();
 
             // Send email only if email configuration is available
             if (process.env.EMAIL_HOST && process.env.EMAIL_USER && process.env.EMAIL_PASS) {
@@ -269,9 +295,8 @@ export default class ActivitiesService {
             } else {
                 logger.warn('Email configuration not found, skipping email notification');
             }
-
-            await transaction.commit();
-            return result;
+          
+            return created;
         } catch (e) {
             // Only rollback if transaction is still active
             if (!transaction.finished) {
