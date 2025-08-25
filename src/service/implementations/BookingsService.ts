@@ -154,7 +154,9 @@ export default class ActivitiesService {
             const activityPackages =
                 await this.activityPackagesDao.findDestinationByPackageId(package_id);
 
-            const activity = await this.activitiesDao.findOne({ where: { id: selectedPackage.activity_id } });
+            const activity = await this.activitiesDao.findOne({
+                where: { id: selectedPackage.activity_id },
+            });
             // Format the date to yyyy-mm-dd
             const formatDate = (date: Date | string) => {
                 const d = new Date(date);
@@ -276,25 +278,24 @@ export default class ActivitiesService {
                         to: `"no-reply" <${process.env.EMAIL_USER}>`,
                         bcc: emails,
                         subject: `Invitation to Join a Trip on coco.co`,
-                        text: `
-                        Dear coco.co Member,\n
-                        You have been invited to join an upcoming trip through coco.co.\n
-                        \n
-                        To view more details and confirm your participation, please click the link below:\n
-                        👉 https://testflight.apple.com/join/u61YVTya\n
-                        \n
-                        By joining this trip, you will be able to:\n
-                            \t- Access all trip details in one place.\n
-                            \t- Share the trip with friends or family members.\n
-                            \t- Stay updated with real-time notifications.\n
-                        \n
-                        If you haven't installed the coco.co app yet, you can download it via the App Store to get the full experience.\n
-                        \n
-                        We look forward to seeing you on this trip! 🚀\n
-                        \n
-                        Best regards,\n
-                        The coco.co Team
-                        `,
+                        text: `Dear coco.co Member,
+
+You have been invited to join an upcoming trip through coco.co.
+
+To view more details and confirm your participation, please click the link below:
+👉 https://testflight.apple.com/join/u61YVTya
+
+By joining this trip, you will be able to:
+• Access all trip details in one place
+• Share the trip with friends or family members
+• Stay updated with real-time notifications
+
+If you haven't installed the coco.co app yet, you can download it via the App Store to get the full experience.
+
+We look forward to seeing you on this trip! 🚀
+
+Best regards,
+The coco.co Team`,
                     };
 
                     await transporter.sendMail(mailOptions);
