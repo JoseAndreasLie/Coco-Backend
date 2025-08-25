@@ -163,8 +163,14 @@ export default class ActivitiesService {
                 booking_created_at: newBooking.created_at,
             };
 
+            const result = {
+                "message": "Booking confirmed successfully.",
+                "success": true, 
+                booking_details
+            };
+
             await t.commit();
-            return booking_details;
+            return result;
         } catch (e) {
             logger.error(e);
             await t.rollback();
