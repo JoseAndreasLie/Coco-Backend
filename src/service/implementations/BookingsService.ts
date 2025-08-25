@@ -9,6 +9,7 @@ import ActivityPackagesDao from '../../dao/implementations/ActivityPackagesDao';
 import responseHandler from '../../helper/responseHandler';
 import { sequelize } from '../../models';
 import models from '../../models';
+import ActivitiesDao from '../../dao/implementations/ActivitiesDao';
 
 require('dotenv').config();
 const nodemailer = require('nodemailer');
@@ -18,12 +19,14 @@ export default class ActivitiesService {
     private userBookingsDao: UserBookingsDao;
     private bookingsDao: BookingsDao;
     private activityPackagesDao: ActivityPackagesDao;
+    private activitiesDao: ActivitiesDao;
 
     constructor() {
         this.userDao = new UserDao();
         this.userBookingsDao = new UserBookingsDao();
         this.bookingsDao = new BookingsDao();
         this.activityPackagesDao = new ActivityPackagesDao();
+        this.activitiesDao = new ActivitiesDao();
     }
 
     getBookingById = async (user_id: string) => {
@@ -151,6 +154,13 @@ export default class ActivitiesService {
             const activityPackages =
                 await this.activityPackagesDao.findDestinationByPackageId(package_id);
 
+            const activity = await this.activitiesDao.findOne({ where: { id: selectedPackage.activity_id } });
+            // Format the date to yyyy-mm-dd
+            const formatDate = (date: Date | string) => {
+                const d = new Date(date);
+                return d.toISOString().split('T')[0]; // Returns yyyy-mm-dd format
+            };
+
             const booking_details = {
                 status: 'confirmed',
                 address: selectedPackage.address,
@@ -160,15 +170,15 @@ export default class ActivitiesService {
                 total_price: total_price,
                 package_name: selectedPackage.name,
                 participants: participants,
-                activity_date: newBooking.date,
-                activity_title: activityPackages.activity.title,
+                activity_date: formatDate(newBooking.date),
+                activity_title: activity.title,
                 booking_created_at: newBooking.created_at,
             };
 
             const result = {
-                "message": "Booking confirmed successfully.",
-                "success": true, 
-                booking_details
+                message: 'Booking confirmed successfully.',
+                success: true,
+                booking_details,
             };
 
             await t.commit();
@@ -209,7 +219,7 @@ export default class ActivitiesService {
             emails.push(planner.email);
 
             const existingBookings = await models.user_bookings.findAll({
-                where: { booking_id }
+                where: { booking_id },
             });
 
             for (const eb of existingBookings) {
@@ -236,7 +246,7 @@ export default class ActivitiesService {
             const created = await models.user_bookings.bulkCreate(newEntries, { transaction });
 
             const updatedParticipants = created.length;
-            const updatedTotalPrice = booking.total_price/booking.participants * created.length;
+            const updatedTotalPrice = (booking.total_price / booking.participants) * created.length;
 
             const updated = await models.bookings.update(
                 {
@@ -295,7 +305,7 @@ export default class ActivitiesService {
             } else {
                 logger.warn('Email configuration not found, skipping email notification');
             }
-          
+
             return created;
         } catch (e) {
             // Only rollback if transaction is still active
