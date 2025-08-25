@@ -212,13 +212,13 @@ export default class ActivitiesService {
             }
 
             const planner_id = booking.planner.id;
-            const planner = await this.userDao.findOne({ where: { id: planner_id } });
+            // const planner = await this.userDao.findOne({ where: { id: planner_id } });
 
-            if (!planner) {
-                throw { status: httpStatus.NOT_FOUND, message: 'Planner not found' };
-            }
+            // if (!planner) {
+            //     throw { status: httpStatus.NOT_FOUND, message: 'Planner not found' };
+            // }
 
-            emails.push(planner.email);
+            // emails.push(planner.email);
 
             const existingBookings = await models.user_bookings.findAll({
                 where: { booking_id },
