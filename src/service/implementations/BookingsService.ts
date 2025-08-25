@@ -56,7 +56,7 @@ export default class ActivitiesService {
         }
     };
 
-    getBookingDetailsById = async (booking_id: string) => {
+    getBookingDetailsById = async (booking_id: string, user_id: string) => {
         try {
             const booking = await this.bookingsDao.findBooking(booking_id);
 
@@ -68,6 +68,7 @@ export default class ActivitiesService {
                 planner: undefined,
                 user_booking: undefined,
                 planner_name: b.planner?.planner_name,
+                is_planner: b.planner?.id === user_id,
                 activity: undefined,
                 activity_title: b.package?.activity?.activity_title,
                 package_name: b.package.package_name,
@@ -189,6 +190,15 @@ export default class ActivitiesService {
             }
 
             const planner_id = booking.planner.id;
+            const planner = await this.userDao.findOne({ where: { id: planner_id } });
+
+            if (!planner) {
+                throw { status: httpStatus.NOT_FOUND, message: 'Planner not found' };
+            }
+
+            console.log(planner.email);
+
+            emails.push(planner.email);
 
             for (const email of emails) {
                 const user = await this.userDao.findByEmail(email);
@@ -199,7 +209,7 @@ export default class ActivitiesService {
                 });
 
                 if (existing) {
-                    await existing.update({ deleted_at: new Date() }, { transaction });
+                    await existing.destroy();
                 }
 
                 newEntries.push({
@@ -211,10 +221,24 @@ export default class ActivitiesService {
                 });
             }
 
-            const result = await models.user_bookings.bulkCreate(newEntries, { transaction });
+            const created = await models.user_bookings.bulkCreate(newEntries, { transaction });
+
+            const updatedParticipants = created.length;
+            const updatedTotalPrice = booking.total_price/booking.participants * created.length;
+
+            console.log(updatedParticipants, updatedTotalPrice)
+
+            const updated = await models.bookings.update(
+                {
+                    participants: updatedParticipants,
+                    total_price: updatedTotalPrice,
+                },
+                { where: { id: booking_id }, transaction }
+            );
+
             await transaction.commit();
 
-            return result;
+            return created;
         } catch (e) {
             await transaction.rollback();
             logger.error(e);

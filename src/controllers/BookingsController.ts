@@ -31,14 +31,20 @@ export default class BookingsController {
 
     getBookingDetailsById = async (req: Request, res: Response) => {
         const { booking_id } = req.body;
+        const { user_id } = req.body;
 
         if (!booking_id) {
             return res.status(httpStatus.BAD_REQUEST).send('Booking ID is required');
         }
 
+        if (!user_id) {
+            return res.status(httpStatus.BAD_REQUEST).send('User ID is required');
+        }
+
         try {
             const bookings: ApiServiceResponse = await this.bookingsService.getBookingDetailsById(
-                booking_id
+                booking_id,
+                user_id
             );
             res.status(httpStatus.OK).send(bookings);
         } catch (e) {
@@ -68,7 +74,7 @@ export default class BookingsController {
         if (!emails) {
             return res.status(httpStatus.BAD_REQUEST).send('Emails are required');
         }
-
+        
         try {
             const user_bookings: ApiServiceResponse = await this.bookingsService.createUserBookingsByEmails(
                 booking_id,
