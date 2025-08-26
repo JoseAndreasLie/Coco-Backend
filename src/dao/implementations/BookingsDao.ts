@@ -49,7 +49,7 @@ export default class BookingsDao extends SuperDao implements IBookingsDao {
                 {
                     model: models.users,
                     as: 'planner',
-                    attributes: [['name', 'planner_name'], 'id']
+                    attributes: [['name', 'planner_name'], 'id', ['email', 'planner_email']]
                 },
                 {
                     model: models.user_bookings, 
