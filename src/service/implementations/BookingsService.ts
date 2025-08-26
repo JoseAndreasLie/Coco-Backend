@@ -253,13 +253,13 @@ export default class ActivitiesService {
             const updatedParticipants = created.length;
             const updatedTotalPrice = (booking.total_price / booking.participants) * created.length;
 
-            const updated = await models.bookings.update(
-                {
-                    participants: updatedParticipants,
-                    total_price: updatedTotalPrice,
-                },
-                { where: { id: booking_id }, transaction }
-            );
+            // const updated = await models.bookings.update(
+            //     {
+            //         participants: updatedParticipants,
+            //         total_price: updatedTotalPrice,
+            //     },
+            //     { where: { id: booking_id }, transaction }
+            // );
 
             await transaction.commit();
 
