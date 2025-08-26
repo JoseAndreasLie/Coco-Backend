@@ -74,6 +74,7 @@ export default class ActivitiesService {
                 planner: undefined,
                 user_booking: undefined,
                 planner_name: b.planner?.planner_name,
+                planner_email: b.planner?.planner_email,
                 is_planner: b.planner?.id === user_id,
                 activity: undefined,
                 activity_title: b.package?.activity?.activity_title,
@@ -87,7 +88,10 @@ export default class ActivitiesService {
                 important_notice: b.package?.important_notice,
                 included_accessories:
                     b.package?.activity?.accessories?.map((acc) => acc.name) || [],
-                member_emails: b.user_booking.map((acc) => acc.member_email) || [],
+                member_emails:
+                b.user_booking
+                    .map((acc) => acc.member_email)
+                    .filter((email) => email && email.toLowerCase() !== b.planner?.planner_email.toLowerCase()) || [],
             };
 
             return flattened;
@@ -213,7 +217,6 @@ export default class ActivitiesService {
 
             const planner_id = booking.planner.id;
             // const planner = await this.userDao.findOne({ where: { id: planner_id } });
-
             // if (!planner) {
             //     throw { status: httpStatus.NOT_FOUND, message: 'Planner not found' };
             // }
