@@ -52,19 +52,27 @@ export default class AuthController {
 
     login = async (req: Request, res: Response) => {
         try {
-            const { email, password } = req.body;
+            const { p_email, p_password } = req.body;
             const user = await this.authService.loginWithEmailPassword(
-                email.toLowerCase(),
-                password
+                p_email.toLowerCase(),
+                p_password
             );
 
             const { message } = user.response;
             const data = <IUser>user.response.data;
+            const { id, name, email } = data;
             const code = user.statusCode;
 
             if (code == 200 && data) {
                 const tokens = await this.tokenService.generateAuthToken(data.id);
-                return res.status(user.statusCode).send({ code, message, data, tokens });
+                return res.status(user.statusCode).send({
+                    name,
+                    email,
+                    message: 'Login successful',
+                    success: 'true',
+                    user_id: id,
+                    token: tokens.access.token,
+                });
             }
 
             return res.status(code).send({ code, message, data });

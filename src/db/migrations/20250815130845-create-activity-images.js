@@ -1,0 +1,43 @@
+'use strict';
+/** @type {import('sequelize-cli').Migration} */
+module.exports = {
+    async up(queryInterface, Sequelize) {
+        await queryInterface.createTable('activity_images', {
+            id: {
+                autoIncrement: true,
+                primaryKey: true,
+                type: Sequelize.INTEGER,
+            },
+            activity_id: {
+                type: Sequelize.INTEGER,
+                references: {
+                    model: 'activities',
+                    key: 'id',
+                },
+                onUpdate: 'CASCADE',
+                onDelete: 'CASCADE',
+            },
+            image_url: {
+                type: Sequelize.STRING,
+            },
+            image_type: {
+                type: Sequelize.STRING,
+            },
+            created_at: {
+                type: Sequelize.DATE,
+                defaultValue: Sequelize.NOW,
+            },
+            updated_at: {
+                type: Sequelize.DATE,
+                defaultValue: Sequelize.NOW,
+            },
+            deleted_at: {
+                allowNull: true,
+                type: Sequelize.DATE,
+            },
+        });
+    },
+    async down(queryInterface, Sequelize) {
+        await queryInterface.dropTable('activity_images');
+    },
+};

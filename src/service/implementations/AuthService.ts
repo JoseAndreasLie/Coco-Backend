@@ -33,7 +33,7 @@ export default class AuthService implements IAuthService {
             // validate user is exist, user is active and user password is valid
             if (
                 !userData ||
-                !(await bcrypt.compare(password, userData.password))
+                !(await bcrypt.compare(password, userData.password_hash))
             ) {
                 return responseHandler.returnError(
                     httpStatus.BAD_REQUEST,
@@ -49,7 +49,6 @@ export default class AuthService implements IAuthService {
             //     limit: 1,
             //     joinTableAttributes: [],
             // });
-
             
 
             // parse sequelize object to raw object for delete password data
